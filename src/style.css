@@ -10,11 +10,22 @@ body {
     background-color: rgb(28, 2, 53);
 }
 
-h1 {
+ h1 {
     color:rgb(255, 255, 0);
     font-size: 40px;
     margin: 30px;
     text-align: center;
+    animation: neon 3s alternate infinite ease-in-out;
+    --cor--neon: #ffbe0b;
+}
+
+ @keyframes neon {
+    from {
+        filter: drop-shadow(0 0 0 var(--cor--neon));
+    }
+    to {
+        filter: drop-shadow(0 0 30px var(--cor--neon));
+    }
 }
 
 a {
@@ -35,11 +46,29 @@ ul {
 #campoPesquisar {
     background-color: rgb(30, 31, 92);
     border-radius: 15px;
-    margin: 50px;
+    margin: 50px 0;
     height: 40px;
     width: 250px;
     border: 3px rgb(25, 0, 255) solid;
     
+}
+
+#botaoPesquisar, .btnVoltar {
+    color: rgb(25, 0, 255);
+    font-weight: bold;
+    padding: 10px;
+    background-color: white;
+    border-radius: 15px;
+    margin: 50px 0;
+    height: 40px;
+    width: 50px;
+    border: 3px rgb(25, 0, 255) solid;
+    cursor: pointer;
+    
+}
+
+.btnVoltar {
+    width: 100px;
 }
 
 input::placeholder {
@@ -100,7 +129,6 @@ input::placeholder {
     width: 100%;
     height: 100%;
     text-align: center;
-    /* background-color: #0c1618; */
     font-family: 'Carter One', cursive;
     font-weight: bold;
     font-size: 2rem;
@@ -124,3 +152,5 @@ height: 500px;
 .cartaoAberto button{
     display: block;
 }
+
+ 
