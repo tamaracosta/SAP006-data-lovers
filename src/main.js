@@ -1,10 +1,12 @@
-import { example } from './data.js';
+import { dadosLol } from './data.js';
 // import data from './data/lol/lol.js';
 import data from './data/lol/lol.js';
 // import data from './data/rickandmorty/rickandmorty.js';
 
 
 const champs = Object.values(data.data);
+
+
 
 // EXIBE CARTÕES NA TELA
 // SE PASSAR PARAMETRO, EXIBE OS FILTRADOS
@@ -25,11 +27,14 @@ function cards(cartoesFiltrados) {
   let imagem;
   let nomePersonagem;
 
+
   document.getElementById("container").innerHTML = ""
 
   for (i = 0; i < cartoes.length; i++) {
     champImg = cartoes[i].splash;
     champName = cartoes[i].name;
+    // dificuldade = cartoes[i].difficulty;
+    // console.log(champName)
 
 
     // CRIADO OS CARDS
@@ -146,3 +151,72 @@ function voltarCard() {
 }
 
 voltarCard()
+
+
+/*
+for(let personagens of champs){
+  console.log(personagens.info.difficulty)
+}
+*/
+
+function filtrarDificuldade() {
+
+  let nivelDificuldade = document.getElementById('campoFiltrar').value;
+  let dadosFiltrados = [];
+
+  dadosFiltrados = champs.filter(function (cartaoAtual) {
+    let numDificuldade = (cartaoAtual.info.difficulty);
+
+    if (nivelDificuldade == "difBaixa" && numDificuldade >= 1 && numDificuldade <= 3) {
+      return true;
+    }
+    else if (nivelDificuldade == "difMedia" && numDificuldade >= 4 && numDificuldade <= 7) {
+      return true;
+    }
+    else if (nivelDificuldade == "difAlta" && numDificuldade >= 8 && numDificuldade <= 10) {
+      return true;
+    }
+
+  })
+
+  cards(dadosFiltrados);
+
+}
+
+document.getElementById('campoFiltrar').addEventListener('change', filtrarDificuldade)
+
+
+
+
+function filtrarFuncoes(funcaoPersonagem) {
+  let dadosFiltrados = [];
+  dadosFiltrados = champs.filter(function (cartaoAtual) {
+
+    if (cartaoAtual.tags.includes(funcaoPersonagem)) {
+      return true;
+    }
+    
+  })
+
+  cards(dadosFiltrados);
+}
+
+
+function filtrarAtiradores() {
+  filtrarFuncoes("Fighter")
+}
+
+
+document.getElementById('atiradores').addEventListener('click', filtrarAtiradores)
+
+
+
+
+
+
+
+
+
+
+
+

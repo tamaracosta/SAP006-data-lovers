@@ -7,3 +7,11 @@ export const example = () => {
 export const anotherExample = () => {
   return 'OMG';
 };
+
+
+export const dadosLol = {
+  filterData:
+    function (data, condition) {
+      return data.filter(condition);
+    }
+}

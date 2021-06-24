@@ -19,8 +19,14 @@
       <div id="pesquisar">
         <input id="campoPesquisar" type="text" placeholder="Pesquisar por nome">
         <button id="botaoPesquisar" type="button">OK</button>
+
       </div>
-      <input id="campoFiltrar" type="text" placeholder="Filtrar por ">
+      <select name="" id="campoFiltrar">
+        <option value="nivel">Nível de Dificuldade</option>
+        <option value="difAlta">Alta Dificuldade</option>
+        <option value="difMedia">Média Dificuldade</option>
+        <option value="difBaixa">Baixa Dificuldade</option>
+      </select>
     </div>
 
 
@@ -38,7 +44,7 @@
     <nav>
       <ul>
         <li><a href="#">Todos</a></li>
-        <li><a href="#">Atiradores</a></li>
+        <li><button type="button" id="atiradores">Atiradores</button></li>
         <li><a href="#">Assassinos</a></li>
         <li><a href="#">Lutadores</a></li>
         <li><a href="#">Magos</a></li>
