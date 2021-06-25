@@ -8,6 +8,7 @@ const champs = Object.values(data.data);
 
 
 
+
 // EXIBE CARTÕES NA TELA
 // SE PASSAR PARAMETRO, EXIBE OS FILTRADOS
 //SE NÃO PASSAR NENHUM PARAMETRO, EXIBE TODOS
@@ -26,6 +27,7 @@ function cards(cartoesFiltrados) {
   let botaoFechar;
   let imagem;
   let nomePersonagem;
+  let dificuldade;
 
 
   document.getElementById("container").innerHTML = ""
@@ -33,8 +35,8 @@ function cards(cartoesFiltrados) {
   for (i = 0; i < cartoes.length; i++) {
     champImg = cartoes[i].splash;
     champName = cartoes[i].name;
-    // dificuldade = cartoes[i].difficulty;
-    // console.log(champName)
+    
+  
 
 
     // CRIADO OS CARDS
@@ -99,23 +101,6 @@ function ordenar(event) {
 document.getElementById("ordenar").addEventListener("change", ordenar)
 
 
-function aumentarCard(x) {
-
-  const divDoCartao = x.target.parentNode;
-
-  if (divDoCartao.classList.contains("card")) {
-    divDoCartao.classList.add("cartaoAberto");
-  }
-}
-
-function normalCard(x) {
-
-  const divDoCartao = x.target.parentNode.parentNode;
-  divDoCartao.classList.remove("cartaoAberto");
-
-}
-
-
 function pesquisar() {
 
   let textoDigitado = document.getElementById("campoPesquisar").value.toUpperCase();
@@ -153,12 +138,6 @@ function voltarCard() {
 voltarCard()
 
 
-/*
-for(let personagens of champs){
-  console.log(personagens.info.difficulty)
-}
-*/
-
 function filtrarDificuldade() {
 
   let nivelDificuldade = document.getElementById('campoFiltrar').value;
@@ -188,26 +167,10 @@ document.getElementById('campoFiltrar').addEventListener('change', filtrarDificu
 
 
 
-function filtrarFuncoes(funcaoPersonagem) {
-  let dadosFiltrados = [];
-  dadosFiltrados = champs.filter(function (cartaoAtual) {
-
-    if (cartaoAtual.tags.includes(funcaoPersonagem)) {
-      return true;
-    }
-    
-  })
-
-  cards(dadosFiltrados);
-}
 
 
-function filtrarAtiradores() {
-  filtrarFuncoes("Fighter")
-}
 
 
-document.getElementById('atiradores').addEventListener('click', filtrarAtiradores)
 
 
 
