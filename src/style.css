@@ -28,11 +28,47 @@ body {
     }
 }
 
-a {
-    color:rgb(189, 189, 189);
-    font-size: 25px;
+nav{
+    width: 85%;
+    margin: auto;
+}
+
+button {
+    color:rgb(255, 255, 255);
+    font-size: 23px;
     text-decoration: none;
-        
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    position: relative;
+    opacity: 0.5;
+    padding: 15px;
+}
+
+button:hover{
+    opacity:1;
+    cursor: pointer;
+}
+
+button::after{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: rgb(3, 7, 238);
+    transition: 0.3s;
+}
+
+.ativo {
+    opacity:1;
+}
+
+button:hover::after,
+.ativo::after {
+    width: 100%;
+    opacity:1;
 }
 
 ul {
@@ -107,12 +143,14 @@ input::placeholder, #campoFiltrar{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 2rem auto auto auto;
+    width: 90%;
 } 
 
 #ordemAlfabetica {
     display: flex;
     justify-content: flex-end;
-    margin-right: 50px;
+    margin-right: 10%;
 }  
     
  
@@ -127,24 +165,25 @@ input::placeholder, #campoFiltrar{
 .card {
     border: 3px solid rgb(255, 0, 221);
     width: 250px;
-    height: 250px;
+    
     margin: 15px;
     color:rgb(233, 233, 233);
     font-size: 20px;
-}  
 
 .card img {
     width: 100%;
-}
+    display: block;
+  }
 
-.card div {
+.card span {
     width: 100%;
-    height: 100%;
     text-align: center;
+    background-color: #0c1618; 
     font-family: 'Carter One', cursive;
     font-weight: bold;
     font-size: 2rem;
-    color: #faf4d3; 
+    color: #faf4d3;
+    display:block;
 }
 
 .btnFechar {
@@ -152,7 +191,7 @@ input::placeholder, #campoFiltrar{
 }
 
  
-.card button {
+/* .card button {
     display: none;
 } 
 
@@ -163,10 +202,9 @@ height: 500px;
 
 .cartaoAberto button{
     display: block;
+} */
+
+.card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
-
-
-
-
-
-
