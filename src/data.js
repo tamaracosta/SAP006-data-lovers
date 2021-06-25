@@ -10,13 +10,34 @@ export const example = () => {
 
 
 
-export const dataLol = {
+export const dadosLol = {
   filterData:
     function (data, condition) {
       return data.filter(condition);
     },
 
-  //sortData(data, sortBy, sortOrder)
-}
+  sortData:
+    function (data, sortBy, sortOrder) {
+      //data.sort(function (sortBy, sortOrder){//ternário
+      sortOder ? //a condição é true?}
+        function (data) {
+          return sortOrder(data[sortBy])
+        } :
+        function (data) {
+          return data[sortBy];
+        }
+      //   if (a<b) {
+      //     return -1;
+      //   }
+      //   if (a>b) {
+      //     return 1;
+      //   }
+      //   // a debe ser igual b
+      //   return 0;
+      // })
 
- 
+
+
+
+    }
+}
