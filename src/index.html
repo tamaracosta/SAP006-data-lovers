@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 
 <body>
@@ -16,17 +18,25 @@
     </header>
 
     <div id="inputs">
-      <input id="campoPesquisar" type="text" placeholder="Pesquisar por nome">
-      <input id="campoFiltrar" type="text" placeholder="Filtrar por ">
-    </div>
+      <div id="pesquisar">
+        <input id="campoPesquisar" type="search" placeholder="Pesquisar por nome"/>
+        <button id="botaoPesquisar" type="button"><span class="material-icons">search</span></button>
+      </div>
 
+      <select name="" id="campoFiltrar">
+        <option value="nivel">Nível de Dificuldade</option>
+        <option value="difAlta">Alta Dificuldade</option>
+        <option value="difMedia">Média Dificuldade</option>
+        <option value="difBaixa">Baixa Dificuldade</option>
+      </select>
+    </div>
 
     <div id="ordemAlfabetica">
       <label for="ordenar">Ordenar:</label>
 
       <select id="ordenar">
-        <option  value="crescente">A a Z</option>
-        <option  value="decrescente">Z a A</option>
+        <option value="crescente">A a Z</option>
+        <option value="decrescente">Z a A</option>
       </select>
     </div>
 
@@ -35,7 +45,7 @@
     <nav>
       <ul>
         <li><a href="#">Todos</a></li>
-        <li><a href="#">Atiradores</a></li>
+        <li><button type="button" id="atiradores">Atiradores</button></li>
         <li><a href="#">Assassinos</a></li>
         <li><a href="#">Lutadores</a></li>
         <li><a href="#">Magos</a></li>
