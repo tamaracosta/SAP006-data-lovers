@@ -4,11 +4,9 @@ export const example = () => {
   return 'example';
 };
 
-// export const filterData = (data, condition) => {
-//   return data.filter(condition);
-// };
-
-
+export const anotherExample = () => {
+  return 'OMG';
+};
 
 export const dadosLol = {
   filterData:
@@ -16,28 +14,47 @@ export const dadosLol = {
       return data.filter(condition);
     },
 
+  //sortData para strings
   sortData:
     function (data, sortBy, sortOrder) {
-      //data.sort(function (sortBy, sortOrder){//ternário
-      sortOder ? //a condição é true?}
-        function (data) {
-          return sortOrder(data[sortBy])
-        } :
-        function (data) {
-          return data[sortBy];
-        }
-      //   if (a<b) {
-      //     return -1;
-      //   }
-      //   if (a>b) {
-      //     return 1;
-      //   }
-      //   // a debe ser igual b
-      //   return 0;
-      // })
 
-
-
-
+      sortOrder == "crescente" ?
+        data.sort((a, b) => { return a[sortBy] > b[sortBy] ? 1 : -1 }) :
+        data.sort((a, b) => { return a[sortBy] > b[sortBy] ? -1 : 1 })
     }
 }
+
+
+//     function (data, sortBy, sortOrder) {
+//       return data.sort((a, b) => {
+//         return (sortOrder == "crescente") && a[sortBy] > b[sortBy] ? 1 : -1;
+//       })
+//     }
+// }
+
+
+
+
+//     function (data, sortBy, sortOrder) {
+
+//       sortOrder == "crescente" ?
+//         data.sort((a, b) => {
+//           if (a[sortBy] > b[sortBy]) {
+//             return 1;
+//           }
+//           else {
+//             return -1
+//           }
+//         }) :
+//         data.sort((a, b) => {
+//           if (a[sortBy] > b[sortBy]) {
+//             return -1;
+//           }
+//           else {
+//             return 1;
+//           }
+//         })
+//     }
+// }
+
+
