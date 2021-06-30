@@ -7,8 +7,9 @@
 }
 
 body {
-    background-color: rgb(28, 2, 53);
+    background-image: linear-gradient(to bottom right, rgb(28, 2, 53), rgb(71, 6, 77), rgb(161, 23, 173));
 }
+
 
  h1 {
     color:rgb(255, 255, 0);
@@ -33,7 +34,8 @@ nav{
     margin: auto;
 }
 
-button {
+
+.btn {
     color:rgb(255, 255, 255);
     font-size: 23px;
     text-decoration: none;
@@ -91,13 +93,16 @@ ul {
     height: 40px;
     width: 250px;
     border: 3px rgb(25, 0, 255) solid;
-       
+    color:beige;
+          
+}
+
+#campoPesquisar:focus{
+    outline: none;
 }
 
 span.material-icons {
     font-size: 25px;
-     right: 15px;
-    top: 6px;
 }
 
 #botaoPesquisar, .btnVoltar {
@@ -115,17 +120,27 @@ span.material-icons {
     
 }
 
+#botaoPesquisar:hover::after, .btnVoltar:hover::after {
+    width:0%;
+}
+
+#botãoPesquisar, .btnVoltar{
+    opacity: 1;
+}
+
 .btnVoltar {
     width: 100px;
+    font-size: 15px;
 }
 
 input::placeholder, #campoFiltrar{
     color: rgb(236, 236, 236);
     text-align: center;
     font-size: 20px;
+    padding: 0 10px;
 }
 
-#campoFiltrar {
+#campoFiltrar, #curiosidade {
     background-color: rgb(94, 34, 91);
     border-radius: 15px;
     margin: 50px;
@@ -133,6 +148,17 @@ input::placeholder, #campoFiltrar{
     width: 250px;
     border: 3px rgb(255, 0, 255) solid;
 }
+
+#curiosidade {
+    background-color: #157777;
+    border: 3px #03FDFD solid;
+    color:#03FDFD;
+    font-size: 25px;
+    text-transform: none;
+    padding: 0;
+   
+}
+
 
 #inputs {
     display: flex;
@@ -144,7 +170,7 @@ input::placeholder, #campoFiltrar{
     flex-wrap: wrap;
     justify-content: center;
     margin: 2rem auto auto auto;
-    width: 90%;
+    
 } 
 
 #ordemAlfabetica {
@@ -163,12 +189,12 @@ input::placeholder, #campoFiltrar{
 }
 
 .card {
-    border: 3px solid rgb(255, 0, 221);
+     border: 3px solid rgb(255, 0, 221);
     width: 250px;
-    
     margin: 15px;
     color:rgb(233, 233, 233);
-    font-size: 20px;
+    font-size: 20px; 
+   }
 
 .card img {
     width: 100%;
@@ -208,3 +234,149 @@ height: 500px;
     transform: scale(1.1);
     cursor: pointer;
 }
+
+
+
+
+
+.face {
+    width: 400px;
+    height: 300px;
+    border: 5px solid #03FDFD;
+    background-color: #144444;
+    color:rgb(233, 233, 233);
+    text-align: center;
+    border-radius: 30px;
+    position: absolute; 
+
+    
+  
+}
+
+#consideracao {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+#descubra {
+    width: 200px;
+    height: 30px;
+    margin-top: 50px;
+    margin-right: 10px;
+    background-color: #03FDFD;
+    color:#144444;
+    text-align: center;
+    border-radius: 10px;
+            
+}
+
+#descubra::after, #voltarPrincipal::after {
+    display: none;
+}
+
+/* #foto {
+    height: 800px;
+    position: relative;
+    top: -300px;
+    left: 120px;
+} */
+
+
+h3 {
+    font-size: 25px;
+    margin-top: 50px;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+#cardCuriosidade {
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all 1s;
+
+}
+#cardCuriosidadeFrente {
+    transform: rotateY(180deg);
+}
+
+#cardCuriosidadeVerso {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#resultadoMedia {
+    font-size: 30px;
+    
+}
+
+#voltarPrincipal {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #03FDFD;
+    
+    
+}
+
+#voltarPrincipal a {
+    text-decoration: none;
+    color: #144444;
+    
+}
+
+#github {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 30px;
+    font-size: 20px;
+    color: rgb(247, 247, 247);
+    text-align: center;
+    line-height: 20px;
+}
+
+#github a {
+    text-decoration: none;
+    color:rgb(255, 255, 255)
+    
+}
+
+#github i {
+    color: #03FDFD;
+    margin-left: 10px;
+}
+
+
+
+
+/* teste circulo rodando 
+
+.container {
+    padding: 100px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#image-circle {
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    border-top: 2px dashed #ffcc00;
+    border-right: 2px dashed red;
+    border-left: 2px dashed #000000;
+    border-bottom: 2px dashed blue;
+    padding: 10px;
+    animation: spin 10s infinite linear;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(1turn);
+    }
+} 
+
+*/
