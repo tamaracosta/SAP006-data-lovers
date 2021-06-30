@@ -10,48 +10,6 @@ const champs = Object.values(data.data);
 // EXIBE CARTÕES NA TELA
 // SE PASSAR PARAMETRO, EXIBE OS FILTRADOS
 //SE NÃO PASSAR NENHUM PARAMETRO, EXIBE TODOS
-
-function ordenar(event) {
-
-  if (event.target.value == "crescente") {
-    dadosLol.sortData(champs, "name", "crescente");
-  } else {
-    dadosLol.sortData(champs, "name", "decrescente");
-  }
-  document.querySelector(".ativo").click();
-
-
-
-  // if (event.target.value == "decrescente") {
-  //   champs.sort(function (a, b) {
-
-  //     if (a.name < b.name) {
-  //       return 1;
-  //     } else {
-  //       return -1;
-  //     }
-  //   }
-  //   );
-  // }
-  // else {
-  //   champs.sort(function (a, b) {
-
-  //     if (a.name < b.name) {
-  //       return -1;
-  //     } else {
-  //       return 1;
-  //     }
-  //   }
-  //   );
-  // }
-  // cards()
-
-
-}
-
-document.getElementById("ordenar").addEventListener("change", ordenar);
-
-
 function cards(cartoesFiltrados) {
   let cartoes;
   if (cartoesFiltrados != null) {
@@ -70,6 +28,14 @@ function cards(cartoesFiltrados) {
   let cardFront;
   let champImgBack;
   let imagemPequena;
+  let champFunction;
+  let funcaoPersonagem;
+  let champTitle;
+  let tituloPersonagem;
+  let infoPersonagem;
+  let headerPersonagem;
+  let champTitleContainer;
+  let champInfoContainer;
 
   document.getElementById("container").innerHTML = "";
 
@@ -77,6 +43,13 @@ function cards(cartoesFiltrados) {
     champImg = cartoes[i].splash;
     champName = cartoes[i].name;
     champImgBack = cartoes[i].img;
+    champFunction = cartoes[i].tags;
+    champTitle = cartoes[i].title;
+
+    let champInfo = "";
+    Object.keys(cartoes[i].info).forEach(e => {
+      champInfo += (e + ": " + cartoes[i].info[e] + "<br>")
+    });
 
     // CRIANDO OS CARDS
     card = document.createElement("div");
@@ -102,13 +75,38 @@ function cards(cartoesFiltrados) {
 
     imagemPequena = document.createElement("img");
     imagemPequena.setAttribute("src", champImgBack);
-    cardBack.appendChild(imagemPequena);
+    //cardBack.appendChild(imagemPequena);
 
     // COLOCANDO NOME E FUNÇÃO DOS PERSONAGENS
     nomePersonagem = document.createElement("SPAN");
     nomePersonagem.setAttribute("class", "nomeEFuncao");
     nomePersonagem.innerHTML = champName; // + "<br>" 
     cardFront.appendChild(nomePersonagem);
+
+    headerPersonagem = document.createElement("SPAN");
+    headerPersonagem.setAttribute("class", "headerPersonagem");
+    funcaoPersonagem = document.createElement("P");
+    funcaoPersonagem.setAttribute("class", "funcaoPersongem")
+    funcaoPersonagem.innerHTML = champName + "<br>" + champFunction;
+    headerPersonagem.appendChild(imagemPequena);
+    headerPersonagem.appendChild(funcaoPersonagem);
+    cardBack.appendChild(headerPersonagem);
+
+    //COLOCANDO TITLE E INFO AO CARDBACK
+    champTitleContainer = document.createElement("SPAN");
+    champTitleContainer.setAttribute("class", "champTitle-container");
+    tituloPersonagem = document.createElement("h3");
+    tituloPersonagem.innerHTML = '"' + champTitle + '"';
+    champTitleContainer.appendChild(tituloPersonagem);
+    
+    champInfoContainer = document.createElement("DIV");
+    infoPersonagem = document.createElement("P");
+    infoPersonagem.innerHTML = champInfo;
+    infoPersonagem.setAttribute("class", "champInfo");
+    champInfoContainer.appendChild(infoPersonagem);
+
+    cardBack.appendChild(champTitleContainer);
+    cardBack.appendChild(champInfoContainer);
 
     //FUNÇÃO VIRAR CARTA E ALTERNAR (TOGGLE) ENTRE AS CLASS 
     //EVENT DELEGATION
@@ -124,6 +122,18 @@ function cards(cartoesFiltrados) {
 cards();
 
 
+function ordenar(event) {
+
+  if (event.target.value == "crescente") {
+    dadosLol.sortData(champs, "name", "crescente");
+  } else {
+    dadosLol.sortData(champs, "name", "decrescente");
+  }
+  document.querySelector(".ativo").click();
+
+}
+
+document.getElementById("ordenar").addEventListener("change", ordenar);
 
 
 function pesquisar() {
@@ -181,8 +191,14 @@ function filtrarDificuldade() {
 
   }
 
-  cards(dadosFiltrados);
+  if (dados);
+  function cartasFiltradas(v, i) {
+    v.dadosFiltrados
+  }
 
+
+  //cards(dadosFiltrados);
+  //document.querySelector(".ativo").click();
 }
 
 document.getElementById('campoFiltrar').addEventListener('change', filtrarDificuldade);
@@ -239,6 +255,7 @@ function mostrarAbaAtual(id) {
       const funcaoTanque = "Tank";
       abas(funcaoTanque);
       break;
+
   }
 }
 
@@ -252,9 +269,9 @@ function removerClasseAtiva() {
 
 function selecionarAba(event) {
   removerClasseAtiva();
+
   const abaId = event.target;
   mostrarAbaAtual(abaId.id);
-
   abaId.className = " ativo";
 }
 

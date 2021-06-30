@@ -19,8 +19,8 @@ export const dadosLol = {
     function (data, sortBy, sortOrder) {
 
       sortOrder == "crescente" ?
-        data.sort((a, b) => { return a[sortBy] > b[sortBy] ? 1 : -1 }) :
-        data.sort((a, b) => { return a[sortBy] > b[sortBy] ? -1 : 1 })
+        data.sort((a, b) => { return a[sortBy] > b[sortBy] ? 1 : a[sortBy] < b[sortBy]? -1 : 0 }) :
+        data.sort((a, b) => { return a[sortBy] > b[sortBy] ? -1 : a[sortBy] < b[sortBy]? 1 : 0 })
     }
 }
 
