@@ -236,17 +236,15 @@ height: 500px;
 }
 
 
-
+/* ==========================PAGINA CURIOSIDADE==================================== */
 
 
 .face {
-    width: 400px;
-    height: 300px;
-    border: 5px solid #03FDFD;
-    background-color: #144444;
-    color:rgb(233, 233, 233);
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background-color: #13dfdf;
     text-align: center;
-    border-radius: 30px;
     position: absolute; 
 
     
@@ -286,7 +284,7 @@ h3 {
     font-size: 25px;
     margin-top: 50px;
 }
-
+ 
 .flip {
     transform: rotateY(180deg);
 }
@@ -296,11 +294,22 @@ h3 {
     display: flex;
     justify-content: center;
     transition: all 1s;
+    margin-top: 23px;
 
 }
+
 #cardCuriosidadeFrente {
     transform: rotateY(180deg);
 }
+
+#cardCuriosidadeFrente h2 {
+    padding-top: 100px;
+    font-size: 25px;
+    width: 80%;
+    margin: auto;
+      
+}
+
 
 #cardCuriosidadeVerso {
     display: flex;
@@ -318,15 +327,15 @@ h3 {
     height: 30px;
     border-radius: 5px;
     background-color: #03FDFD;
-    
-    
+    margin: auto;
+      
 }
 
 #voltarPrincipal a {
     text-decoration: none;
     color: #144444;
     
-}
+} 
 
 #github {
     display: flex;
@@ -353,30 +362,33 @@ h3 {
 
 
 
-/* teste circulo rodando 
+/* teste circulo rodando */
 
 .container {
-    padding: 100px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
-#image-circle {
-    width: 132px;
-    height: 132px;
+#borda-circle {
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
-    border-top: 2px dashed #ffcc00;
-    border-right: 2px dashed red;
-    border-left: 2px dashed #000000;
-    border-bottom: 2px dashed blue;
+    border-top: 5px dashed #03FDFD;
+    border-right: 5px dashed #13dfdf;
+    border-left: 5px dashed #2eafaf;
+    border-bottom: 5px dashed #318888;
     padding: 10px;
     animation: spin 10s infinite linear;
+
+    position: absolute; 
+   
+    
 }
 
 @keyframes spin {
     100% {
-        transform: rotate(1turn);
+        transform: rotate(0.3turn);
     }
 } 
 
-*/
+

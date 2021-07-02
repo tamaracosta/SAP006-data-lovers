@@ -16,7 +16,35 @@
 
     <section>
 
-        <div class="flip" id="cardCuriosidade">
+        <div class="container">
+            <div id="borda-circle"></div>
+
+            <div class="flip" id="cardCuriosidade">
+                <div class="face" id="cardCuriosidadeFrente">
+                    <h2 id="pergunta">Você sabe qual é a média de dificuldade de todos os personagens de LOL?</h2>
+
+                    <div id="consideracao">
+                        <p>Considerando:</p>
+                        <p>1 a 3: baixa dificuldade</p>
+                        <p>4 a 7: média dificuldade</p>
+                        <p>8 a 10: alta dificuldade</p>
+                    </div>
+                    <button id="descubra">Descubra</button>
+
+
+                </div>
+                <div class="face" id="cardCuriosidadeVerso">
+                    <h3>134 personagens</h3>
+                    <span id="resultadoMedia"></span>
+                    <a href="index.html"><button id="voltarPrincipal">Voltar</button></a>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <!-- <div class="flip" id="cardCuriosidade">
             <div class="face" id="cardCuriosidadeFrente">
 
                 <h2 id="pergunta">Você sabe qual é a média de dificuldade de todos os personagens de LOL?</h2>
@@ -36,11 +64,13 @@
                 <button id="voltarPrincipal"><a href="index.html">Voltar</a></button>
 
             </div>
-        </div>
+        </div> -->
 
     </section>
 
     <img id="foto" src="img/foto1.png" alt="foto de personagem">
+
+
 
     <script src="curiosidade.js" type="module"></script>
 
