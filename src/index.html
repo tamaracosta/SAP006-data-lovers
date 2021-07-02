@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body>
@@ -20,12 +20,14 @@
     <div id="inputs">
 
       <div id="pesquisar">
-        <input id="campoPesquisar" type="search" placeholder="Pesquisar por nome"/>
+        <input id="campoPesquisar" type="search" placeholder="Pesquisar por nome" />
         <button id="botaoPesquisar" type="button"><span class="material-icons">search</span></button>
       </div>
 
+      <a href="curiosidade.html"><button id="curiosidade" type="button">Curiosidade</button></a>
+
       <select name="" id="campoFiltrar">
-        <option value="nivel">Nível de Dificuldade</option>
+        <option value="nivel">Todas as Dificuldades</option>
         <option value="difAlta">Alta Dificuldade</option>
         <option value="difMedia">Média Dificuldade</option>
         <option value="difBaixa">Baixa Dificuldade</option>
@@ -44,11 +46,11 @@
 
 
 
-    <nav>
+    <nav id="menuTipoPersonagem">
       <ul>
 
         <li><button type="button" class="btn" id="btn-todos">Todos</button></li>
-        <li><button type="button" class="btn" id="btn-atiradores" >Atiradores</button></li>
+        <li><button type="button" class="btn" id="btn-atiradores">Atiradores</button></li>
         <li><button type="button" class="btn" id="btn-assassinos">Assassinos</button></li>
         <li><button type="button" class="btn" id="btn-lutadores">Lutadores</button></li>
         <li><button type="button" class="btn" id="btn-magos">Magos</button></li>
@@ -60,8 +62,21 @@
 
     <section id="container"></section>
 
+    <footer>
+      <div id="github">
+        <p>Desenvolvido por:</p>
+        <a href="https://github.com/yukaum" target="_blank">Taiene<i class="fab fa-github"></i></a>
+        <p>&amp;</p>
+        <a href="https://github.com/tamaracosta" target="_blank">Tamara<i class="fab fa-github"></i></a>
+      </div>
+    </footer>
+
+
   </div>
   <script src="main.js" type="module"></script>
+
+
+ 
 </body>
 
 </html>
