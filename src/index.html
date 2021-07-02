@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -36,7 +36,7 @@
     </div>
 
     <div id="ordemAlfabetica">
-      <label for="ordenar">Ordenar:</label>
+      <label for="ordenar" class="label-ordenar">Ordenar:</label>
 
       <select id="ordenar">
         <option value="crescente">A a Z</option>
@@ -45,20 +45,30 @@
     </div>
 
 
+    <section>
+      <nav>
+        <ul>
+          <li><button type="button" class="btn" id="btn-todos" value="btn-todos">Todos</button></li>
+          <li><button type="button" class="btn" value="btn-atiradores">Atiradores</button></li>
+          <li><button type="button" class="btn" value="btn-assassinos">Assassinos</button></li>
+          <li><button type="button" class="btn" value="btn-lutadores">Lutadores</button></li>
+          <li><button type="button" class="btn" value="btn-magos">Magos</button></li>
+          <li><button type="button" class="btn" value="btn-suportes">Suportes</button></li>
+          <li><button type="button" class="btn" value="btn-tanques">Tanques</button></li>
+        </ul>
+      </nav>
 
-    <nav id="menuTipoPersonagem">
-      <ul>
+      <select id="funcao-do-campeao" class="funcao-container">
+        <option  value="btn-todos">TODOS</option>
+        <option  value="btn-atiradores">ATIRADORES</option>
+        <option  value="btn-assassinos">ASSASSINOS</option>
+        <option  value="btn-lutadores">LUTADORES</option>
+        <option  value="btn-magos">MAGOS</option>
+        <option  value="btn-suportes">SUPORTES</option>
+        <option  value="btn-todos">TANQUES</option>
+      </select>
+    </section>
 
-        <li><button type="button" class="btn" id="btn-todos">Todos</button></li>
-        <li><button type="button" class="btn" id="btn-atiradores">Atiradores</button></li>
-        <li><button type="button" class="btn" id="btn-assassinos">Assassinos</button></li>
-        <li><button type="button" class="btn" id="btn-lutadores">Lutadores</button></li>
-        <li><button type="button" class="btn" id="btn-magos">Magos</button></li>
-        <li><button type="button" class="btn" id="btn-suportes">Suportes</button></li>
-        <li><button type="button" class="btn" id="btn-tanques">Tanques</button></li>
-
-      </ul>
-    </nav>
 
     <section id="container"></section>
 
