@@ -261,10 +261,12 @@ height: 500px;
     height: 30px;
     margin-top: 50px;
     margin-right: 10px;
-    background-color: #03FDFD;
-    color:#144444;
+    background-color: #000;
+    color:#13dfdf;
+    font-size: 1em;
     text-align: center;
     border-radius: 10px;
+    
             
 }
 
@@ -326,7 +328,9 @@ h3 {
     width: 100px;
     height: 30px;
     border-radius: 5px;
-    background-color: #03FDFD;
+    color: #03FDFD;
+    background-color: #000;
+    font-size: 1em;
     margin: auto;
       
 }
