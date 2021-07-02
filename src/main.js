@@ -9,13 +9,12 @@ let cartoesFiltradosPorFuncao = champs;
 // EXIBE CARTÕES NA TELA
 // SE PASSAR PARAMETRO, EXIBE OS FILTRADOS
 //SE NÃO PASSAR NENHUM PARAMETRO, EXIBE TODOS
-
 function cards(cartoesFiltrados) {
   let cartoes;
   if (cartoesFiltrados != null) {
-    cartoes = cartoesFiltrados
+    cartoes = cartoesFiltrados;
   } else {
-    cartoes = champs
+    cartoes = champs;
   }
 
   let i;
@@ -25,45 +24,115 @@ function cards(cartoesFiltrados) {
   let imagem;
   let nomePersonagem;
 
+  let cardBack;
+  let cardFront;
+  let champImgBack;
+  let imagemPequena;
+  let champFunction;
+  let funcaoPersonagem;
+  let champTitle;
+  let infoPersonagem;
+  let headerPersonagem;
+  let champTitleContainer;
+  let champInfoContainer;
+
   document.getElementById("container").innerHTML = "";
 
   for (i = 0; i < cartoes.length; i++) {
     champImg = cartoes[i].splash;
     champName = cartoes[i].name;
+    champImgBack = cartoes[i].img;
+    champFunction = cartoes[i].tags;
+    champTitle = cartoes[i].title;
 
-    // CRIADO OS CARDS
+    let champInfo = "";
+    Object.keys(cartoes[i].info).forEach(e => {
+      champInfo += (e + ": " + cartoes[i].info[e] + "<br>")
+    });
+
+    // CRIANDO OS CARDS
     card = document.createElement("div");
-    card.setAttribute("class", "card")
+    card.setAttribute("class", "card");
     document.getElementById("container").appendChild(card);
+
+    //FRONT
+    cardFront = document.createElement("div");
+    cardFront.setAttribute("class", "card-front");
+    card.appendChild(cardFront);
+    card.addEventListener("click", virarCard);
+
+    //BACK
+    cardBack = document.createElement("div");
+    cardBack.setAttribute("class", "card-back");
+    card.appendChild(cardBack);
 
     //COLOCANDO IMAGEM DOS PERSONAGENS NO CARD
     imagem = document.createElement("img");
     imagem.setAttribute("src", champImg);
-    card.appendChild(imagem)
+    cardFront.appendChild(imagem);
+
+    imagemPequena = document.createElement("img");
+    imagemPequena.setAttribute("src", champImgBack);
 
     // COLOCANDO NOME E FUNÇÃO DOS PERSONAGENS
     nomePersonagem = document.createElement("SPAN");
     nomePersonagem.setAttribute("class", "nomeEFuncao");
-    nomePersonagem.innerHTML = champName; // + "<br>" 
-    card.appendChild(nomePersonagem);
+    nomePersonagem.innerHTML = champName;
+    cardFront.appendChild(nomePersonagem);
+
+    headerPersonagem = document.createElement("SPAN");
+    headerPersonagem.setAttribute("class", "headerPersonagem");
+    funcaoPersonagem = document.createElement("P");
+    funcaoPersonagem.setAttribute("class", "funcaoPersongem")
+    funcaoPersonagem.innerHTML = champName + "<br>" + champFunction;
+    headerPersonagem.appendChild(imagemPequena);
+    headerPersonagem.appendChild(funcaoPersonagem);
+
+    cardBack.appendChild(headerPersonagem);
+
+    //COLOCANDO TITLE E INFO AO CARDBACK
+    champTitleContainer = document.createElement("SPAN");
+    champTitleContainer.setAttribute("class", "champTitle-container");
+    champTitleContainer.innerHTML = '"' + champTitle + '"';
+
+    champInfoContainer = document.createElement("DIV");
+    champInfoContainer.setAttribute("class", "champInfo-container");
+    champInfoContainer.appendChild(champTitleContainer);
+
+    infoPersonagem = document.createElement("P");
+    infoPersonagem.innerHTML = champInfo;
+    infoPersonagem.setAttribute("class", "champInfo");
+    champInfoContainer.appendChild(infoPersonagem);
+    cardBack.appendChild(champInfoContainer);
+
+    //FUNÇÃO VIRAR CARTA E ALTERNAR (TOGGLE) ENTRE AS CLASS 
+    //EVENT DELEGATION
+
+    function virarCard(x) {
+      const divDoCartao = x.target.parentNode.parentNode;
+
+      if (divDoCartao.classList.contains("card")) {
+        divDoCartao.classList.toggle("flip");
+
+      } else if (divDoCartao.parentNode.classList.contains("card")) {
+        divDoCartao.parentNode.classList.toggle("flip");
+      }
+    }
   }
 }
 
-
-// ORDENAR A a Z/ Z a A
 function ordenar(event) {
 
   if (event.target.value == "crescente") {
-    dadosLol.sortData(champs, "name", "crescente")
+    dadosLol.sortData(champs, "name", "crescente");
   } else {
-    dadosLol.sortData(champs, "name", "decrescente")
+    dadosLol.sortData(champs, "name", "decrescente");
   }
-
-  document.querySelector(".ativo").click()
+  document.querySelector(".ativo").click();
 
 }
 
-document.getElementById("ordenar").addEventListener("change", ordenar)
+document.getElementById("ordenar").addEventListener("change", ordenar);
 
 // PESQUISAR PELO NOME
 function pesquisar() {
@@ -82,23 +151,22 @@ function pesquisar() {
   cards(dadosFiltrados);
 
   // CRIADO BOTÃO VOLTAR (APARECER SÓ QUANDO FILTRAR)
-  let botaoVoltar = document.createElement('button')
-  botaoVoltar.setAttribute('class', 'btnVoltar')
-  botaoVoltar.addEventListener("click", voltarCard)
-  botaoVoltar.innerHTML = "Voltar"
-  document.getElementById('container').appendChild(botaoVoltar)
-  console.log(botaoVoltar)
+  let botaoVoltar = document.createElement('button');
+  botaoVoltar.setAttribute('class', 'btnVoltar');
+  botaoVoltar.addEventListener("click", voltarCard);
+  botaoVoltar.innerHTML = "Voltar";
+  document.getElementById('container').appendChild(botaoVoltar);
 }
 
-document.getElementById('campoPesquisar').addEventListener('keypress', pesquisar)
+document.getElementById('campoPesquisar').addEventListener('keypress', pesquisar);
 
 
 // VOLTAR A PÁGINA INICIAL
 function voltarCard() {
-  cards()
+  cards();
 }
 
-voltarCard()
+voltarCard();
 
 // FILTRAR NÍVEL DE DIFICULDADE
 function filtrarDificuldade(cartoes) {
@@ -131,8 +199,7 @@ function filtrarDificuldade(cartoes) {
 
 document.getElementById('campoFiltrar').addEventListener('change', todosFiltros)
 
-
-const botoes = [document.querySelectorAll("nav button")];
+const botoesAbas = [document.querySelectorAll("nav button")];
 
 //FUNÇÃO DAS ABAS EM GERAL EXCETO ABA TODOS
 function abas(funcaoDoCampeao) {
@@ -145,8 +212,8 @@ function abas(funcaoDoCampeao) {
   }
 
   const cartoes = dadosLol.filterData(champs, funcaoPersonagem);
-  cartoesFiltradosPorFuncao = cartoes
-  todosFiltros()
+  cartoesFiltradosPorFuncao = cartoes;
+  todosFiltros();
 
 }
 
@@ -154,8 +221,8 @@ function abas(funcaoDoCampeao) {
 function mostrarAbaAtual(id) {
   switch (id) {
     case "btn-todos":
-      cartoesFiltradosPorFuncao = champs
-      todosFiltros()
+      cartoesFiltradosPorFuncao = champs;
+      todosFiltros();
       break;
 
     case "btn-atiradores":
@@ -187,6 +254,7 @@ function mostrarAbaAtual(id) {
       const funcaoTanque = "Tank";
       abas(funcaoTanque);
       break;
+
   }
 }
 
@@ -199,17 +267,21 @@ function removerClasseAtiva() {
 
 function selecionarAba(event) {
   removerClasseAtiva();
+
   const abaId = event.target;
-  mostrarAbaAtual(abaId.id);
-  abaId.classList.add("ativo")
+  mostrarAbaAtual(abaId.value);
+  abaId.classList.add("ativo");
 }
 
-//ADICIONA EVENTO "CLICK" A CADA BOTÃO
-botoes.forEach(aba => {
-  for (let i = 0; i < aba.length; i++) {
-    aba[i].addEventListener("click", selecionarAba);
+//ADICIONA EVENTO "CLICK" A CADA BOTÃO DA NAV
+botoesAbas.forEach(botao => {
+  for (let i = 0; i < botao.length; i++) {
+    botao[i].addEventListener("click", selecionarAba);
   }
 });
+
+//ADICIONA EVENTO "CHANGE" SELECT de FUNCAO DO CAMPEAO @MEDIA
+const selectFuncao = document.getElementById("funcao-do-campeao").addEventListener("change", selecionarAba);
 
 
 function iniciar() {
@@ -220,10 +292,6 @@ iniciar();
 
 //REALIZA TODOS OS FILTROS ,QUALQUER ABA, QUALQUER NÍVEL DE DIFICULDADE
 function todosFiltros() {
-  let cartoesFiltradosPorNivel = filtrarDificuldade(cartoesFiltradosPorFuncao)
-  cards(cartoesFiltradosPorNivel)
+  let cartoesFiltradosPorNivel = filtrarDificuldade(cartoesFiltradosPorFuncao);
+  cards(cartoesFiltradosPorNivel);
 }
-
-
-
-
