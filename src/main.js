@@ -1,11 +1,10 @@
 import { dadosLol } from './data.js';
 
-// import data from './data/lol/lol.js';
 import data from './data/lol/lol.js';
-// import data from './data/rickandmorty/rickandmorty.js';
 
+let champs = Object.values(data.data);
+let cartoesFiltradosPorFuncao = champs;
 
-const champs = Object.values(data.data);
 
 // EXIBE CARTÕES NA TELA
 // SE PASSAR PARAMETRO, EXIBE OS FILTRADOS
@@ -24,6 +23,7 @@ function cards(cartoesFiltrados) {
   let card;
   let imagem;
   let nomePersonagem;
+
   let cardBack;
   let cardFront;
   let champImgBack;
@@ -120,8 +120,6 @@ function cards(cartoesFiltrados) {
     }
   }
 }
-cards();
-
 
 function ordenar(event) {
 
@@ -136,9 +134,8 @@ function ordenar(event) {
 
 document.getElementById("ordenar").addEventListener("change", ordenar);
 
-
+// PESQUISAR PELO NOME
 function pesquisar() {
-
   let textoDigitado = document.getElementById("campoPesquisar").value.toUpperCase();
   let dadosFiltrados = [];
 
@@ -161,22 +158,23 @@ function pesquisar() {
   document.getElementById('container').appendChild(botaoVoltar);
 }
 
-document.getElementById('botaoPesquisar').addEventListener('click', pesquisar);
+document.getElementById('campoPesquisar').addEventListener('keypress', pesquisar);
 
 
+// VOLTAR A PÁGINA INICIAL
 function voltarCard() {
   cards();
 }
 
 voltarCard();
 
-
-function filtrarDificuldade() {
+// FILTRAR NÍVEL DE DIFICULDADE
+function filtrarDificuldade(cartoes) {
 
   let nivelDificuldade = document.getElementById('campoFiltrar').value;
   let dadosFiltrados = [];
 
-  dadosFiltrados = dadosLol.filterData(champs, dificuldade);
+  dadosFiltrados = dadosLol.filterData(cartoes, dificuldade)
   function dificuldade(cartaoAtual) {
     let numDificuldade = (cartaoAtual.info.difficulty);
 
@@ -189,17 +187,19 @@ function filtrarDificuldade() {
     else if (nivelDificuldade == "difAlta" && numDificuldade >= 8 && numDificuldade <= 10) {
       return true;
     }
+    else if (nivelDificuldade == "nivel") {
+      return true;
+    }
 
   }
 
-  cards(dadosFiltrados);
+  return dadosFiltrados;
 
 }
 
-document.getElementById('campoFiltrar').addEventListener('change', filtrarDificuldade);
+document.getElementById('campoFiltrar').addEventListener('change', todosFiltros)
 
 const botoesAbas = [document.querySelectorAll("nav button")];
-
 
 //FUNÇÃO DAS ABAS EM GERAL EXCETO ABA TODOS
 function abas(funcaoDoCampeao) {
@@ -212,14 +212,17 @@ function abas(funcaoDoCampeao) {
   }
 
   const cartoes = dadosLol.filterData(champs, funcaoPersonagem);
-  cards(cartoes);
+  cartoesFiltradosPorFuncao = cartoes;
+  todosFiltros();
+
 }
 
 
 function mostrarAbaAtual(id) {
   switch (id) {
     case "btn-todos":
-      cards();
+      cartoesFiltradosPorFuncao = champs;
+      todosFiltros();
       break;
 
     case "btn-atiradores":
@@ -255,7 +258,6 @@ function mostrarAbaAtual(id) {
   }
 }
 
-
 function removerClasseAtiva() {
   const abaAtiva = document.querySelectorAll("nav button");
   abaAtiva.forEach(aba => {
@@ -268,7 +270,7 @@ function selecionarAba(event) {
 
   const abaId = event.target;
   mostrarAbaAtual(abaId.value);
-  abaId.className = " ativo";
+  abaId.classList.add("ativo");
 }
 
 //ADICIONA EVENTO "CLICK" A CADA BOTÃO DA NAV
@@ -286,3 +288,10 @@ function iniciar() {
   document.getElementById("btn-todos").click();
 }
 iniciar();
+
+
+//REALIZA TODOS OS FILTROS ,QUALQUER ABA, QUALQUER NÍVEL DE DIFICULDADE
+function todosFiltros() {
+  let cartoesFiltradosPorNivel = filtrarDificuldade(cartoesFiltradosPorFuncao);
+  cards(cartoesFiltradosPorNivel);
+}
