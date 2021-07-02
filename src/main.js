@@ -31,7 +31,6 @@ function cards(cartoesFiltrados) {
   let champFunction;
   let funcaoPersonagem;
   let champTitle;
-  let tituloPersonagem;
   let infoPersonagem;
   let headerPersonagem;
   let champTitleContainer;
@@ -60,13 +59,12 @@ function cards(cartoesFiltrados) {
     cardFront = document.createElement("div");
     cardFront.setAttribute("class", "card-front");
     card.appendChild(cardFront);
-    cardFront.addEventListener("click", virarCard);
+    card.addEventListener("click", virarCard);
 
     //BACK
     cardBack = document.createElement("div");
     cardBack.setAttribute("class", "card-back");
     card.appendChild(cardBack);
-    cardBack.addEventListener("click", virarCard);
 
     //COLOCANDO IMAGEM DOS PERSONAGENS NO CARD
     imagem = document.createElement("img");
@@ -75,12 +73,11 @@ function cards(cartoesFiltrados) {
 
     imagemPequena = document.createElement("img");
     imagemPequena.setAttribute("src", champImgBack);
-    //cardBack.appendChild(imagemPequena);
 
     // COLOCANDO NOME E FUNÇÃO DOS PERSONAGENS
     nomePersonagem = document.createElement("SPAN");
     nomePersonagem.setAttribute("class", "nomeEFuncao");
-    nomePersonagem.innerHTML = champName; // + "<br>" 
+    nomePersonagem.innerHTML = champName;
     cardFront.appendChild(nomePersonagem);
 
     headerPersonagem = document.createElement("SPAN");
@@ -90,22 +87,22 @@ function cards(cartoesFiltrados) {
     funcaoPersonagem.innerHTML = champName + "<br>" + champFunction;
     headerPersonagem.appendChild(imagemPequena);
     headerPersonagem.appendChild(funcaoPersonagem);
+
     cardBack.appendChild(headerPersonagem);
 
     //COLOCANDO TITLE E INFO AO CARDBACK
     champTitleContainer = document.createElement("SPAN");
     champTitleContainer.setAttribute("class", "champTitle-container");
-    tituloPersonagem = document.createElement("h3");
-    tituloPersonagem.innerHTML = '"' + champTitle + '"';
-    champTitleContainer.appendChild(tituloPersonagem);
-    
+    champTitleContainer.innerHTML = '"' + champTitle + '"';
+
     champInfoContainer = document.createElement("DIV");
+    champInfoContainer.setAttribute("class", "champInfo-container");
+    champInfoContainer.appendChild(champTitleContainer);
+
     infoPersonagem = document.createElement("P");
     infoPersonagem.innerHTML = champInfo;
     infoPersonagem.setAttribute("class", "champInfo");
     champInfoContainer.appendChild(infoPersonagem);
-
-    cardBack.appendChild(champTitleContainer);
     cardBack.appendChild(champInfoContainer);
 
     //FUNÇÃO VIRAR CARTA E ALTERNAR (TOGGLE) ENTRE AS CLASS 
@@ -113,8 +110,12 @@ function cards(cartoesFiltrados) {
 
     function virarCard(x) {
       const divDoCartao = x.target.parentNode.parentNode;
+
       if (divDoCartao.classList.contains("card")) {
         divDoCartao.classList.toggle("flip");
+
+      } else if (divDoCartao.parentNode.classList.contains("card")) {
+        divDoCartao.parentNode.classList.toggle("flip");
       }
     }
   }
@@ -158,8 +159,8 @@ function pesquisar() {
   botaoVoltar.addEventListener("click", voltarCard);
   botaoVoltar.innerHTML = "Voltar";
   document.getElementById('container').appendChild(botaoVoltar);
-  console.log(botaoVoltar);
 }
+
 document.getElementById('botaoPesquisar').addEventListener('click', pesquisar);
 
 
@@ -191,19 +192,14 @@ function filtrarDificuldade() {
 
   }
 
-  if (dados);
-  function cartasFiltradas(v, i) {
-    v.dadosFiltrados
-  }
+  cards(dadosFiltrados);
 
-
-  //cards(dadosFiltrados);
-  //document.querySelector(".ativo").click();
 }
 
 document.getElementById('campoFiltrar').addEventListener('change', filtrarDificuldade);
 
-const botoes = [document.querySelectorAll("nav button")];
+const botoesAbas = [document.querySelectorAll("nav button")];
+
 
 //FUNÇÃO DAS ABAS EM GERAL EXCETO ABA TODOS
 function abas(funcaoDoCampeao) {
@@ -271,16 +267,19 @@ function selecionarAba(event) {
   removerClasseAtiva();
 
   const abaId = event.target;
-  mostrarAbaAtual(abaId.id);
+  mostrarAbaAtual(abaId.value);
   abaId.className = " ativo";
 }
 
-//ADICIONA EVENTO "CLICK" A CADA BOTÃO
-botoes.forEach(aba => {
-  for (let i = 0; i < aba.length; i++) {
-    aba[i].addEventListener("click", selecionarAba);
+//ADICIONA EVENTO "CLICK" A CADA BOTÃO DA NAV
+botoesAbas.forEach(botao => {
+  for (let i = 0; i < botao.length; i++) {
+    botao[i].addEventListener("click", selecionarAba);
   }
 });
+
+//ADICIONA EVENTO "CHANGE" SELECT de FUNCAO DO CAMPEAO @MEDIA
+const selectFuncao = document.getElementById("funcao-do-campeao").addEventListener("change", selecionarAba);
 
 
 function iniciar() {
