@@ -11,7 +11,7 @@ body {
     background-image: linear-gradient(to bottom right, rgb(28, 2, 53), rgb(71, 6, 77), rgb(161, 23, 173));
 } 
 
- h1 {
+ #tituloLOL {
     color:rgb(255, 255, 0);
     font-size: 40px;
     margin: 30px;
@@ -29,11 +29,11 @@ body {
     }
 }
 
-nav{
+#filtros {
     width: 85%;
+    display: block;
     margin: auto;
 }
-
 
 .btn {
     color:rgb(255, 255, 255);
@@ -52,7 +52,7 @@ button:hover{
     cursor: pointer;
 }
 
-button::after{
+.btn::after{
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -67,7 +67,7 @@ button::after{
     opacity:1;
 }
 
-button:hover::after,
+.btn:hover::after,
 .ativo::after {
     width: 100%;
     opacity:1;
@@ -83,18 +83,21 @@ ul {
 
 #pesquisar {
     display: flex;
-    align-items: center;
+    background-color: rgb(30, 31, 92);
+    border-radius: 15px;
+    border: 3px rgb(25, 0, 255) solid;
+    height: 40px;
+    width: 250px;
 }
 
 #campoPesquisar {
-    background-color: rgb(30, 31, 92);
-    border-radius: 15px;
-    margin: 50px 10px;
-    height: 40px;
-    width: 250px;
-    border: 3px rgb(25, 0, 255) solid;
+    background-color: transparent;
+    text-align: start;
+    border: none;
     color:beige;
-          
+    margin-left: 10px;
+    font-size: 1.2em;
+    width: 75%;
 }
 
 #campoPesquisar:focus{
@@ -102,10 +105,13 @@ ul {
 }
 
 span.material-icons {
-    font-size: 25px;
+    color: white;
+    margin: auto;
+    margin-right: 10px;
+  
 }
 
-#botaoPesquisar, .btnVoltar {
+.btnVoltar {
     color: rgb(25, 0, 255);
     font-weight: bold;
     padding: 10px;
@@ -116,19 +122,6 @@ span.material-icons {
     width: 50px;
     border: 3px rgb(25, 0, 255) solid;
     cursor: pointer;
-    opacity: 1;
-}
-
-#botaoPesquisar:hover::after,
-.btnVoltar:hover::after{
-    width:0%;
-}
-
-#botaoPesquisar:hover::after, .btnVoltar:hover::after {
-    width:0%;
-}
-
-#botãoPesquisar, .btnVoltar{
     opacity: 1;
 }
 
@@ -147,7 +140,7 @@ input::placeholder, #campoFiltrar{
 #campoFiltrar, #curiosidade {
     background-color: rgb(94, 34, 91);
     border-radius: 15px;
-    margin: 50px;
+    /* margin: 50px; */
     height: 40px;
     width: 250px;
     border: 3px rgb(255, 0, 255) solid;
@@ -160,13 +153,12 @@ input::placeholder, #campoFiltrar{
     font-size: 25px;
     text-transform: none;
     padding: 0;
-   
 }
-
 
 #inputs {
     display: flex;
     justify-content: space-around;
+    margin-top: 80px;
 }
     
 #container {
@@ -179,10 +171,10 @@ input::placeholder, #campoFiltrar{
 #ordemAlfabetica {
     display: flex;
     justify-content: flex-end;
-    margin-right: 10%;
+    margin-right: 5%;
+    margin-top: 50px;
 }  
     
- 
 #ordemAlfabetica label {
     color:beige;
     font-size: 20px;
@@ -278,15 +270,16 @@ input::placeholder, #campoFiltrar{
     height: 50%;
 }
 
-.card.flip {
+.card .flip {
     transform: rotateY(180deg) scale(1.1);
     -webkit-transform: rotateY(180deg) scale(1.1);
-  }
+}
 
 .btnFechar {
     display: block;
     font-size: 15px;
 }
+
 
 .card-front:hover { 
     transform: scale(1.1);
@@ -305,10 +298,9 @@ input::placeholder, #campoFiltrar{
     border-radius: 50%;
     background-color: #13dfdf;
     text-align: center;
-    position: absolute; 
-
-    
-  
+    position: absolute;
+    /* backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; */
 }
 
 #consideracao {
@@ -319,17 +311,13 @@ input::placeholder, #campoFiltrar{
 #descubra {
     width: 200px;
     height: 30px;
-    margin-top: 50px;
+    margin-top: 1em;
     margin-right: 10px;
     background-color: #03FDFD;
     color:#144444;
     text-align: center;
     border-radius: 10px;
             
-}
-
-#descubra::after, #voltarPrincipal::after {
-    display: none;
 }
 
 h3 {
@@ -339,6 +327,7 @@ h3 {
  
 .flip {
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
 }
 
 #cardCuriosidade {
@@ -352,6 +341,7 @@ h3 {
 
 #cardCuriosidadeFrente {
     transform: rotateY(180deg);
+    z-index: 2;
 }
 
 #cardCuriosidadeFrente h2 {
@@ -362,11 +352,11 @@ h3 {
       
 }
 
-
 #cardCuriosidadeVerso {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    z-index: 1;
 }
 
 #resultadoMedia {
@@ -426,7 +416,6 @@ h3 {
     border-bottom: 5px dashed #318888;
     padding: 10px;
     animation: spin 10s infinite linear;
-
     position: absolute; 
    
     
@@ -440,7 +429,7 @@ h3 {
 
 /* ==========================RESPONSIVIDADE==================================== */
 
-@media screen and (max-width: 415px){
+@media screen and (max-width: 480px){
 
     body {
         background: rgb(6,6,6);
@@ -448,6 +437,12 @@ h3 {
 
     }
 
+    #filtros {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
     .card-front,
     .card-back {
         width: 44vw;
@@ -517,4 +512,115 @@ h3 {
     }
 }
     
+    
+@media screen and (min-width: 481px) and (max-width: 768px){
+    body {
+            background: rgb(6,6,6);
+            background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);
+            min-height: 100vh;
+     
+        }
+     
+        #tituloLOL span {
+            display: block;
+        }
+     
+        #foto {
+            display: none;
+        }
+     
+        #botaoPesquisar {
+            display: none;
+        }
+     
+        #curiosidade {
+            margin: 50px 10px;
+            font-size: 1.25em;
+        }
+     
+        #campoPesquisar, #curiosidade {
+            width: 45vw;
+     
+        }
+     
+        #campoFiltrar {
+            margin: 0 20px;
+        }
+     
+        #funcao-do-campeao, #campoFiltrar {
+        background-color: rgb(94, 34, 91);
+        border-radius: 15px;
+        height: 40px;
+        width: 45vw;
+        border: 3px rgb(255, 0, 255) solid;
+        color: rgb(236, 236, 236);
+        text-align: center;
+        font-size: 20px;
+        padding: 0 10px;
+        margin: 10px 10px;
+        }
+     
+       #ordemAlfabetica {
+         margin: 1em;
+       }
+        
+        .card-front,
+        .card-back {
+            width: 44vw;
+            background-color: #142d33;
+            margin: 10px;
+        } 
+     
+        .card-front img {
+            object-fit: cover;
+            height: 152px;
+            
+        }
+     
+        .card-front span{
+            /* font-size: 6vw; */
+            font-size: 2em;
+            max-width: 100%;
+        }
+     
+        .card-front:hover {
+            transform: none;
+        }
+     
+        .card.flip {
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+        }
+     
+        .card-back span img {
+           display: none;
+        }
+     
+        .card-back .champTitle-container {
+            font-size: 4vw;
+        }
+     
+        .card-back .headerPersonagem p {
+            line-height: 6vw;
+            font-size: 4vw;
+            margin-left: 5px;
+        }
+     
+        #inputs {
+            flex-wrap: wrap;
+            
+        }
+     
+        nav {
+            display: none;
+        }
+     
+        .funcao-container {
+            display: block;
+        }
+    }
+        .nomeEFuncao {
+            font-size: 2em;
+        }
+        
     
