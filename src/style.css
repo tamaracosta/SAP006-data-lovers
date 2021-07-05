@@ -6,13 +6,10 @@
     box-sizing: border-box;
 }
 
-
 body {
     background: rgb(6,6,6);
         background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);
-    
-
-    /* background-image: linear-gradient(to bottom right, rgb(28, 2, 53), rgb(71, 6, 77), rgb(161, 23, 173)); */
+        /* background-image: linear-gradient(to bottom right, rgb(28, 2, 53), rgb(71, 6, 77), rgb(161, 23, 173)); */
 } 
 
  .tituloLOL {
@@ -49,7 +46,6 @@ body {
     text-transform: uppercase;
     position: relative;
     opacity: 0.5;
-    /* padding: 15px; */
     margin: 15px 15px 15px 0px;
 }
 
@@ -143,7 +139,6 @@ span.material-icons {
 
 a.btn-curiosidade-container, .filtro-dificuldade {
     width: 250px;
-    /* margin: 20px 0px 20px 40px;    */
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -165,7 +160,6 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
 #funcao-do-campeao {
     background-color: rgb(94, 34, 91);
     border-radius: 15px;
-    
     height: 40px;
     width: 100%;
     border: 3px rgb(255, 0, 255) solid;
@@ -175,7 +169,6 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     background-color: #157777;
     border: 3px #03FDFD solid;
     color:#03FDFD;
-    /* font-size: 25px; */
     font-size: 1.5rem;
     text-transform: none;
     padding: 0;
@@ -185,10 +178,9 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     display: flex;
     justify-content: center;
     width: 100%;
-
 }
     
-#container {
+#cardContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -206,7 +198,6 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     color:beige;
     font-size: 20px;
     margin-right: 20px;
-    
 }
 
 .card {
@@ -229,9 +220,10 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     -webkit-backface-visibility: hidden;
     background-color: #0c1618;
 }
+
 .card-front img {
     width: 100%;
-  }
+}
 
 .card-front span {
     width: 100%;
@@ -248,6 +240,7 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     -webkit-transform: rotateX(0deg);
     border-image: linear-gradient(135deg, rgba(5,255,246,1), rgba(33,47,69,1), rgba(77,25,77,1), rgba(33,47,69,1), rgba(5,255,246,1))1;
 }
+
 .card-back {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
@@ -431,7 +424,9 @@ h3 {
 .container {
     display: flex;
     justify-content: center;
+    
 }
+
 
 #borda-circle {
     width: 500px;
@@ -461,7 +456,7 @@ h3 {
     body {
         background: rgb(6,6,6);
         background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);
-        /* width: 100%; */
+        min-height: 100vh;
     }
 
     #filtros {
@@ -491,7 +486,6 @@ h3 {
     .card-front img {
         object-fit: cover;
         height: 152px;
-        
     }
 
     .card-front span{
@@ -525,10 +519,6 @@ h3 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        /* display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-gap: 1em 0.5em; */
     }
 
     #pesquisar,
@@ -558,15 +548,34 @@ h3 {
         margin: 1rem 1rem;
     }
     
-    #container { 
+    #cardContainer { 
         margin: auto;
     }
 
-    #foto {
+    /* #foto {
         display: none;
     }
 
+    #borda-circle {
+        width: 90vw;
+        height: 90vw;
+    }
 
+    #cardCuriosidadeFrente,
+    #cardCuriosidadeVerso {
+        width: 80vw;
+        height: 80vw;
+    }
+
+    #cardCuriosidade {
+        margin-top: 5vw;
+    
+    }
+
+    #cardCuriosidadeFrente h2 {
+        padding-top: 15vw;
+        font-size: 1em;
+    } */
 
 
 
