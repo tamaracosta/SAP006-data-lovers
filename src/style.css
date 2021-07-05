@@ -537,11 +537,11 @@ h3 {
     #campoFiltrar,
     #funcao-do-campeao,
     #pesquisar {
-        font-size: 0.9em;
+        font-size: 4vw;
     }
 
     input::placeholder {
-        font-size: 0.9em;
+        font-size: 4vw;
     }
 
     #ordemAlfabetica {
@@ -552,7 +552,7 @@ h3 {
         margin: auto;
     }
 
-    /* #foto {
+    #foto {
         display: none;
     }
 
@@ -574,8 +574,8 @@ h3 {
 
     #cardCuriosidadeFrente h2 {
         padding-top: 15vw;
-        font-size: 1em;
-    } */
+        font-size: 3vw;
+    }
 
 
 
