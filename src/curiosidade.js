@@ -6,7 +6,7 @@ const champs = Object.values(data.data);
 // ESCONDER CARD FRENTE QUANDO VIRAR
 function esconderCardFrente() {
   const cardFrente = document.getElementById("cardCuriosidadeFrente")
-  setTimeout(function(){ cardFrente.style.display = "none"; }, 1000);
+  setTimeout(function(){ cardFrente.style.display = "none"; }, 1);
 }
 
 
@@ -24,5 +24,3 @@ document.getElementById("descubra").addEventListener("click", virarCardCuriosida
 // CRIAR FUNCAO PARA CALCULAR O NIVEL DE DIFICULDADE DOS PERSONAGENS
 let resultadoFinal = dadosLol.computeStats(champs)
 document.getElementById('resultadoMedia').innerHTML = "A média é: " + resultadoFinal
-
-

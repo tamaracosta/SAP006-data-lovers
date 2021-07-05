@@ -20,23 +20,11 @@ function cards(cartoesFiltrados) {
   let i;
   let champName;
   let champImg;
-  let card;
-  let imagem;
-  let nomePersonagem;
-
-  let cardBack;
-  let cardFront;
   let champImgBack;
-  let imagemPequena;
   let champFunction;
-  let funcaoPersonagem;
   let champTitle;
-  let infoPersonagem;
-  let headerPersonagem;
-  let champTitleContainer;
-  let champInfoContainer;
 
-  document.getElementById("container").innerHTML = "";
+  document.getElementById("cardContainer").innerHTML = "";
 
   for (i = 0; i < cartoes.length; i++) {
     champImg = cartoes[i].splash;
@@ -50,39 +38,41 @@ function cards(cartoesFiltrados) {
       champInfo += (e + ": " + cartoes[i].info[e] + "<br>")
     });
 
-    // CRIANDO OS CARDS
-    card = document.createElement("div");
+    //CRIANDO OS CARDS
+    const card = document.createElement("div");
     card.setAttribute("class", "card");
-    document.getElementById("container").appendChild(card);
+    document.getElementById("cardContainer").appendChild(card);
 
-    //FRONT
-    cardFront = document.createElement("div");
+    //CARD-FRONT
+    const cardFront = document.createElement("div");
     cardFront.setAttribute("class", "card-front");
     card.appendChild(cardFront);
     card.addEventListener("click", virarCard);
 
-    //BACK
-    cardBack = document.createElement("div");
+    //CARD-BACK
+    const cardBack = document.createElement("div");
     cardBack.setAttribute("class", "card-back");
     card.appendChild(cardBack);
 
-    //COLOCANDO IMAGEM DOS PERSONAGENS NO CARD
-    imagem = document.createElement("img");
+    //COLOCANDO IMAGEM DOS PERSONAGENS NO CARDFRONT
+    const imagem = document.createElement("img");
     imagem.setAttribute("src", champImg);
     cardFront.appendChild(imagem);
 
-    imagemPequena = document.createElement("img");
+    //COLOCANDO IMAGEM PEQUENA DOS PERSONAGENS NO CARDBACK
+    const imagemPequena = document.createElement("img");
     imagemPequena.setAttribute("src", champImgBack);
 
-    // COLOCANDO NOME E FUNÇÃO DOS PERSONAGENS
-    nomePersonagem = document.createElement("SPAN");
+    // COLOCANDO NOME DOS PERSONAGENS NO CARDFRONT
+    const nomePersonagem = document.createElement("SPAN");
     nomePersonagem.setAttribute("class", "nomeEFuncao");
     nomePersonagem.innerHTML = champName;
     cardFront.appendChild(nomePersonagem);
 
-    headerPersonagem = document.createElement("SPAN");
+    // COLOCANDO NOME E FUNÇÃO DOS PERSONAGENS NO CARDBACK
+    const headerPersonagem = document.createElement("SPAN");
     headerPersonagem.setAttribute("class", "headerPersonagem");
-    funcaoPersonagem = document.createElement("P");
+    const funcaoPersonagem = document.createElement("P");
     funcaoPersonagem.setAttribute("class", "funcaoPersongem")
     funcaoPersonagem.innerHTML = champName + "<br>" + champFunction;
     headerPersonagem.appendChild(imagemPequena);
@@ -91,15 +81,15 @@ function cards(cartoesFiltrados) {
     cardBack.appendChild(headerPersonagem);
 
     //COLOCANDO TITLE E INFO AO CARDBACK
-    champTitleContainer = document.createElement("SPAN");
+    const champTitleContainer = document.createElement("SPAN");
     champTitleContainer.setAttribute("class", "champTitle-container");
     champTitleContainer.innerHTML = '"' + champTitle + '"';
 
-    champInfoContainer = document.createElement("DIV");
+    const champInfoContainer = document.createElement("DIV");
     champInfoContainer.setAttribute("class", "champInfo-container");
     champInfoContainer.appendChild(champTitleContainer);
 
-    infoPersonagem = document.createElement("P");
+    const infoPersonagem = document.createElement("P");
     infoPersonagem.innerHTML = champInfo;
     infoPersonagem.setAttribute("class", "champInfo");
     champInfoContainer.appendChild(infoPersonagem);
@@ -122,17 +112,16 @@ function cards(cartoesFiltrados) {
 }
 
 function ordenar(event) {
-
   if (event.target.value == "crescente") {
     dadosLol.sortData(champs, "name", "crescente");
   } else {
     dadosLol.sortData(champs, "name", "decrescente");
   }
-  document.querySelector(".ativo").click();
-
+  mostrarAbaAtual(abaValue.value);
 }
 
 document.getElementById("ordenar").addEventListener("change", ordenar);
+
 
 // PESQUISAR PELO NOME
 function pesquisar() {
@@ -155,18 +144,16 @@ function pesquisar() {
   botaoVoltar.setAttribute('class', 'btnVoltar');
   botaoVoltar.addEventListener("click", voltarCard);
   botaoVoltar.innerHTML = "Voltar";
-  document.getElementById('container').appendChild(botaoVoltar);
+  document.getElementById('cardContainer').appendChild(botaoVoltar);
 }
 
-document.getElementById('campoPesquisar').addEventListener('keypress', pesquisar);
+document.getElementById('campoPesquisar').addEventListener('keyup', pesquisar);
 
 
 // VOLTAR A PÁGINA INICIAL
 function voltarCard() {
   cards();
 }
-
-voltarCard();
 
 // FILTRAR NÍVEL DE DIFICULDADE
 function filtrarDificuldade(cartoes) {
@@ -190,18 +177,16 @@ function filtrarDificuldade(cartoes) {
     else if (nivelDificuldade == "nivel") {
       return true;
     }
-
   }
-
   return dadosFiltrados;
-
 }
 
 document.getElementById('campoFiltrar').addEventListener('change', todosFiltros)
 
+
 const botoesAbas = [document.querySelectorAll("nav button")];
 
-//FUNÇÃO DAS ABAS EM GERAL EXCETO ABA TODOS
+//FUNÇÕES PARA MOSTRAR CONTÉUDA NAS ABAS - EXCETO ABA TODOS
 function abas(funcaoDoCampeao) {
   function tag(funcao) {
     return funcaoDoCampeao.includes(funcao);
@@ -214,12 +199,11 @@ function abas(funcaoDoCampeao) {
   const cartoes = dadosLol.filterData(champs, funcaoPersonagem);
   cartoesFiltradosPorFuncao = cartoes;
   todosFiltros();
-
 }
 
 
-function mostrarAbaAtual(id) {
-  switch (id) {
+function mostrarAbaAtual(value) {
+  switch (value) {
     case "btn-todos":
       cartoesFiltradosPorFuncao = champs;
       todosFiltros();
@@ -265,12 +249,13 @@ function removerClasseAtiva() {
   })
 }
 
+let abaValue;
 function selecionarAba(event) {
   removerClasseAtiva();
 
-  const abaId = event.target;
-  mostrarAbaAtual(abaId.value);
-  abaId.classList.add("ativo");
+  abaValue = event.target;
+  mostrarAbaAtual(abaValue.value);
+  abaValue.classList.add("ativo");
 }
 
 //ADICIONA EVENTO "CLICK" A CADA BOTÃO DA NAV
@@ -280,7 +265,7 @@ botoesAbas.forEach(botao => {
   }
 });
 
-//ADICIONA EVENTO "CHANGE" SELECT de FUNCAO DO CAMPEAO @MEDIA
+//ADICIONA EVENTO "CHANGE" AO SELECT de FUNCAO DO CAMPEAO @MEDIA
 const selectFuncao = document.getElementById("funcao-do-campeao").addEventListener("change", selecionarAba);
 
 
