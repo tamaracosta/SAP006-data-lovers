@@ -6,12 +6,10 @@
     box-sizing: border-box;
 }
 
-
 body {
     background: rgb(6,6,6);
         background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px); 
     
-
     /* background-image: linear-gradient(to bottom right, rgb(28, 2, 53), rgb(71, 6, 77), rgb(161, 23, 173)); */
 } 
 
@@ -49,7 +47,6 @@ body {
     text-transform: uppercase;
     position: relative;
     opacity: 0.5;
-    /* padding: 15px; */
     margin: 15px 15px 15px 0px;
 }
 
@@ -143,7 +140,6 @@ span.material-icons {
 
 a.btn-curiosidade-container, .filtro-dificuldade {
     width: 250px;
-    /* margin: 20px 0px 20px 40px;    */
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -165,7 +161,6 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
 #funcao-do-campeao {
     background-color: rgb(94, 34, 91);
     border-radius: 15px;
-    
     height: 40px;
     width: 100%;
     border: 3px rgb(255, 0, 255) solid;
@@ -175,7 +170,6 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     background-color: #157777;
     border: 3px #03FDFD solid;
     color:#03FDFD;
-    /* font-size: 25px; */
     font-size: 1.5rem;
     text-transform: none;
     padding: 0;
@@ -185,7 +179,6 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     display: flex;
     justify-content: center;
     width: 100%;
-
 }
     
 #cardContainer {
@@ -206,7 +199,6 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     color:beige;
     font-size: 20px;
     margin-right: 20px;
-    
 }
 
 .card {
@@ -229,9 +221,10 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     -webkit-backface-visibility: hidden;
     background-color: #0c1618;
 }
+
 .card-front img {
     width: 100%;
-  }
+}
 
 .card-front span {
     width: 100%;
@@ -248,6 +241,7 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     -webkit-transform: rotateX(0deg);
     border-image: linear-gradient(135deg, rgba(5,255,246,1), rgba(33,47,69,1), rgba(77,25,77,1), rgba(33,47,69,1), rgba(5,255,246,1))1;
 }
+
 .card-back {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
@@ -363,7 +357,6 @@ h3 {
     justify-content: center;
     transition: all 1s;
     margin-top: 3vh;
-
 }
 
 #cardCuriosidadeFrente {
@@ -376,7 +369,6 @@ h3 {
     font-size: 25px;
     width: 80%;
     margin: auto;
-      
 }
 
 #cardCuriosidadeVerso {
@@ -388,7 +380,6 @@ h3 {
 
 #resultadoMedia {
     font-size: 30px;
-    
 }
 
 /* #voltarPrincipal {
@@ -406,10 +397,8 @@ h3 {
     
 } 
 
-
 #foto {
     max-height: 100vh;
- 
 }
 
 #github {
@@ -439,6 +428,7 @@ h3 {
     justify-content: center;
 }
 
+
 #borda-circle {
     width: 66vh;
     height: 66vh;
@@ -449,9 +439,7 @@ h3 {
     border-bottom: 5px dashed #318888;
     padding: 10px;
     animation: spin 10s infinite linear;
-    position: absolute; 
-   
-    
+    position: absolute;        
 }
 
 @keyframes spin {
@@ -461,21 +449,16 @@ h3 {
 } 
 
 /* ==========================RESPONSIVIDADE==================================== */
-
-
-
 @media screen and (min-width: 481px) and (max-width: 768px){
     body {
         background: rgb(6,6,6);
         background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);
         min-height: 100vh;
-        
-    }
+     }
 
     .tituloLOL span {
         display: block;
     }
-
 
     #filtros {
         width: 100%;
@@ -485,12 +468,10 @@ h3 {
     .funcao-container {
         display: none;
     }
-    
-        
+           
     #funcao-do-campeao {
         display: block;
     }
-
     
     .card-front,
     .card-back {
@@ -502,7 +483,6 @@ h3 {
     .card-front img {
         object-fit: cover;
         height: 152px;
-        
     }
 
     .card-front span{
@@ -570,31 +550,30 @@ h3 {
     }
     
 
-    /* testeee fundo card 
+            /* testeee fundo card 
 
-    primeira
-    background: linear-gradient(
-76deg
-, #000000, #09ffff);
+            primeira
+            background: linear-gradient(
+        76deg
+        , #000000, #09ffff);
 
 
 
-segunda 
-    background: linear-gradient(
-65deg
-, rgb(96 10 104), #065353);
+        segunda 
+            background: linear-gradient(
+        65deg
+        , rgb(96 10 104), #065353);
+        }
+        
+        
+        terceira 
+        
+        background: linear-gradient(
+        75deg
+        , #000000, #1cbbbb);*/
+
+
 }
-  
- 
- terceira 
- 
- background: linear-gradient(
-75deg
-, #000000, #1cbbbb);*/
-
-
-}
-
 
 /* =============== TAIENE ============= */
 
@@ -603,7 +582,7 @@ segunda
     body {
         background: rgb(6,6,6);
         background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);
-        /* width: 100%; */
+        min-height: 100vh;
     }
 
     #filtros {
@@ -633,7 +612,6 @@ segunda
     .card-front img {
         object-fit: cover;
         height: 152px;
-        
     }
 
     .card-front span{
@@ -651,7 +629,7 @@ segunda
     }
 
     .card-back span img {
-       display: none;
+        display: none;
     }
 
     .card-back .champTitle-container {
@@ -667,10 +645,6 @@ segunda
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        /* display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-gap: 1em 0.5em; */
     }
 
     #pesquisar,
@@ -689,11 +663,11 @@ segunda
     #campoFiltrar,
     #funcao-do-campeao,
     #pesquisar {
-        font-size: 0.9em;
+        font-size: 4vw;
     }
 
     input::placeholder {
-        font-size: 0.9em;
+        font-size: 4vw;
     }
 
     #ordemAlfabetica {
@@ -706,8 +680,27 @@ segunda
 
     #foto {
         display: none;
-    }
+    } 
 
+    /* #borda-circle {
+        width: 90vw;
+        height: 90vw;
+    }
+    #cardCuriosidadeFrente,
+    #cardCuriosidadeVerso {
+        width: 80vw;
+        height: 80vw;
+    }
+    #cardCuriosidade {
+        margin-top: 5vw;
+    
+    }
+    #cardCuriosidadeFrente h2 {
+        padding-top: 15vw;
+        font-size: 1em; 
+    } */
+
+    
+    
+    
 }
-    
-    
