@@ -24,7 +24,7 @@ function cards(cartoesFiltrados) {
   let champFunction;
   let champTitle;
 
-  document.getElementById("container").innerHTML = "";
+  document.getElementById("cardContainer").innerHTML = "";
 
   for (i = 0; i < cartoes.length; i++) {
     champImg = cartoes[i].splash;
@@ -41,7 +41,7 @@ function cards(cartoesFiltrados) {
     //CRIANDO OS CARDS
     const card = document.createElement("div");
     card.setAttribute("class", "card");
-    document.getElementById("container").appendChild(card);
+    document.getElementById("cardContainer").appendChild(card);
 
     //CARD-FRONT
     const cardFront = document.createElement("div");
@@ -144,7 +144,7 @@ function pesquisar() {
   botaoVoltar.setAttribute('class', 'btnVoltar');
   botaoVoltar.addEventListener("click", voltarCard);
   botaoVoltar.innerHTML = "Voltar";
-  document.getElementById('container').appendChild(botaoVoltar);
+  document.getElementById('cardContainer').appendChild(botaoVoltar);
 }
 
 document.getElementById('campoPesquisar').addEventListener('keyup', pesquisar);

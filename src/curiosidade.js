@@ -24,5 +24,3 @@ document.getElementById("descubra").addEventListener("click", virarCardCuriosida
 // CRIAR FUNCAO PARA CALCULAR O NIVEL DE DIFICULDADE DOS PERSONAGENS
 let resultadoFinal = dadosLol.computeStats(champs)
 document.getElementById('resultadoMedia').innerHTML = "A média é: " + resultadoFinal
-
-

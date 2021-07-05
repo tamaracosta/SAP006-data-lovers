@@ -8,8 +8,9 @@
 
 body {
     background: rgb(6,6,6);
-        background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);
-        /* background-image: linear-gradient(to bottom right, rgb(28, 2, 53), rgb(71, 6, 77), rgb(161, 23, 173)); */
+        background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px); 
+    
+    /* background-image: linear-gradient(to bottom right, rgb(28, 2, 53), rgb(71, 6, 77), rgb(161, 23, 173)); */
 } 
 
  .tituloLOL {
@@ -257,7 +258,7 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     display: flex;
     align-items: flex-start;
     height: 25%;
-    background-color: #0c1618;
+    background: linear-gradient(76deg, #000000, #09ffff);
 }   
 
 .card-back .headerPersonagem p {
@@ -272,7 +273,7 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
 
 .card-back .champTitle-container {
     height: 3.1rem;
-    background-color: #ca870a;
+    background:linear-gradient(65deg, rgb(96 10 104), #065353);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -283,7 +284,7 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
 
 .card-back .champInfo {
     font-size: 1rem;
-    background-color:#185663;
+    background: linear-gradient(75deg, #000000, #1cbbbb);
     line-height: 1.5rem;
     font-style: none;
     text-align: center;
@@ -313,8 +314,8 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
 /* ==========================PAGINA CURIOSIDADE==================================== */
 
 .face {
-    width: 450px;
-    height: 450px;
+    width: 60vh;
+    height: 60vh;
     border-radius: 50%;
     background-color: #13dfdf;
     text-align: center;
@@ -328,13 +329,13 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     font-size: 20px;
 }
 
-#descubra {
-    width: 200px;
+#descubra, #voltarPrincipal {
+    width: 150px;
     height: 30px;
     margin-top: 1em;
     margin-right: 10px;
-    background-color: #03FDFD;
-    color:#144444;
+    background-color: #000000;
+    color:#13dfdf;
     text-align: center;
     border-radius: 10px;
             
@@ -355,8 +356,7 @@ h3 {
     display: flex;
     justify-content: center;
     transition: all 1s;
-    margin-top: 23px;
-
+    margin-top: 3vh;
 }
 
 #cardCuriosidadeFrente {
@@ -369,7 +369,6 @@ h3 {
     font-size: 25px;
     width: 80%;
     margin: auto;
-      
 }
 
 #cardCuriosidadeVerso {
@@ -381,23 +380,26 @@ h3 {
 
 #resultadoMedia {
     font-size: 30px;
-    
 }
 
-#voltarPrincipal {
+/* #voltarPrincipal {
     width: 100px;
     height: 30px;
     border-radius: 5px;
     background-color: #03FDFD;
     margin: auto;
       
-}
+} */
 
 #voltarPrincipal a {
     text-decoration: none;
     color: #144444;
     
 } 
+
+#foto {
+    max-height: 100vh;
+}
 
 #github {
     display: flex;
@@ -421,16 +423,15 @@ h3 {
     margin-left: 10px;
 }
 
-.container {
+.containerCirculo {
     display: flex;
     justify-content: center;
-    
 }
 
 
 #borda-circle {
-    width: 500px;
-    height: 500px;
+    width: 66vh;
+    height: 66vh;
     border-radius: 50%;
     border-top: 5px dashed #03FDFD;
     border-right: 5px dashed #13dfdf;
@@ -438,9 +439,7 @@ h3 {
     border-bottom: 5px dashed #318888;
     padding: 10px;
     animation: spin 10s infinite linear;
-    position: absolute; 
-   
-    
+    position: absolute;        
 }
 
 @keyframes spin {
@@ -450,13 +449,15 @@ h3 {
 } 
 
 /* ==========================RESPONSIVIDADE==================================== */
-
-@media screen and (max-width: 480px){
-
+@media screen and (min-width: 481px) and (max-width: 768px){
     body {
         background: rgb(6,6,6);
         background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);
         min-height: 100vh;
+     }
+
+    .tituloLOL span {
+        display: block;
     }
 
     #filtros {
@@ -467,15 +468,11 @@ h3 {
     .funcao-container {
         display: none;
     }
-    
-    .label-ordenar{
-        display: none;
-    }
-    
+           
     #funcao-do-campeao {
         display: block;
     }
-
+    
     .card-front,
     .card-back {
         width: 44vw;
@@ -489,7 +486,7 @@ h3 {
     }
 
     .card-front span{
-        font-size: 6vw;
+        font-size: 4vw;
         max-width: 100%;
     }
 
@@ -548,95 +545,63 @@ h3 {
         margin: 1rem 1rem;
     }
     
-    #cardContainer { 
-        margin: auto;
-    }
-
-    /* #foto {
+      #foto {
         display: none;
     }
-
-    #borda-circle {
-        width: 90vw;
-        height: 90vw;
-    }
-
-    #cardCuriosidadeFrente,
-    #cardCuriosidadeVerso {
-        width: 80vw;
-        height: 80vw;
-    }
-
-    #cardCuriosidade {
-        margin-top: 5vw;
     
-    }
 
-    #cardCuriosidadeFrente h2 {
-        padding-top: 15vw;
-        font-size: 1em;
-    } */
+            /* testeee fundo card 
+
+            primeira
+            background: linear-gradient(
+        76deg
+        , #000000, #09ffff);
 
 
+
+        segunda 
+            background: linear-gradient(
+        65deg
+        , rgb(96 10 104), #065353);
+        }
+        
+        
+        terceira 
+        
+        background: linear-gradient(
+        75deg
+        , #000000, #1cbbbb);*/
 
 
 }
-    
-    
-/* =============== TAMARA ============= */
 
-@media screen and (min-width: 481px) and (max-width: 768px){
+/* =============== TAIENE ============= */
+
+@media screen and (max-width: 480px){
 
     body {
         background: rgb(6,6,6);
         background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);
         min-height: 100vh;
-
     }
 
-    #tituloLOL span {
+    #filtros {
+        width: 100%;
+        margin-top: 0px;
+    }
+    
+    .funcao-container {
+        display: none;
+    }
+    
+    .label-ordenar{
+        display: none;
+    }
+    
+    #funcao-do-campeao {
         display: block;
     }
 
-    #foto {
-        display: none;
-    }
-
-    #botaoPesquisar {
-        display: none;
-    }
-
-    #curiosidade {
-        margin: 50px 10px;
-        font-size: 1.25em;
-    }
-
-    #campoPesquisar, #curiosidade {
-        width: 45vw;
-
-    }
-
-    #campoFiltrar {
-        margin: 0 20px;
-    }
- 
-    #funcao-do-campeao, #campoFiltrar {
-    background-color: rgb(94, 34, 91);
-    border-radius: 15px;
-    height: 40px;
-    width: 45vw;
-    border: 3px rgb(255, 0, 255) solid;
-    color: rgb(236, 236, 236);
-    text-align: center;
-    font-size: 20px;
-    padding: 0 10px;
-    margin: 10px 10px;
-    }
-
-   #ordemAlfabetica {
-     margin: 1em;
-   }
-    
     .card-front,
     .card-back {
         width: 44vw;
@@ -647,12 +612,10 @@ h3 {
     .card-front img {
         object-fit: cover;
         height: 152px;
-        
     }
 
     .card-front span{
-        /* font-size: 6vw; */
-        font-size: 2em;
+        font-size: 6vw;
         max-width: 100%;
     }
 
@@ -666,7 +629,7 @@ h3 {
     }
 
     .card-back span img {
-       display: none;
+        display: none;
     }
 
     .card-back .champTitle-container {
@@ -674,25 +637,70 @@ h3 {
     }
 
     .card-back .headerPersonagem p {
-        line-height: 6vw;
         font-size: 4vw;
         margin-left: 5px;
     }
 
     #inputs {
+        display: flex;
         flex-wrap: wrap;
-        
+        justify-content: space-between;
     }
 
-    nav {
-        display: none;
+    #pesquisar,
+    .filtro-dificuldade {
+        width: 45vw;
+        margin: 10px 0px 10px 3vw;
     }
 
+    a.btn-curiosidade-container,
     #funcao-do-campeao {
-        display: block;
+        width: 45vw;
+        margin: 10px 3vw 10px 0;
     }
-}
-    .nomeEFuncao {
-        font-size: 2em;
+
+    #curiosidade,
+    #campoFiltrar,
+    #funcao-do-campeao,
+    #pesquisar {
+        font-size: 4vw;
+    }
+
+    input::placeholder {
+        font-size: 4vw;
+    }
+
+    #ordemAlfabetica {
+        margin: 1rem 1rem;
     }
     
+    #cardContainer { 
+        margin: auto;
+    }
+
+    #foto {
+        display: none;
+    } 
+
+    /* #borda-circle {
+        width: 90vw;
+        height: 90vw;
+    }
+    #cardCuriosidadeFrente,
+    #cardCuriosidadeVerso {
+        width: 80vw;
+        height: 80vw;
+    }
+    #cardCuriosidade {
+        margin-top: 5vw;
+    
+    }
+    #cardCuriosidadeFrente h2 {
+        padding-top: 15vw;
+        font-size: 1em; 
+    } */
+
+    
+    
+    
+}
