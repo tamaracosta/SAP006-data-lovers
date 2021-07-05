@@ -14,61 +14,66 @@
   <div id="root">
 
     <header>
-      <h1>LEAGUE OF LEGENDS' CARDS</h1>
+      <h1 id="tituloLOL"><span>LEAGUE OF</span> LEGENDS' CARDS</h1>
+
     </header>
 
-    <div id="inputs">
+    <section id="filtros">
 
-      <div id="pesquisar">
-        <input id="campoPesquisar" type="search" placeholder="Pesquisar por nome" />
-        <button id="botaoPesquisar" type="button"><span class="material-icons">search</span></button>
+      <div id="inputs">
+
+        <div id="pesquisar">
+          <input id="campoPesquisar" type="search" placeholder="Pesquisar nome" />
+          <span class="material-icons">search</span>
+        </div>
+
+        <a href="curiosidade.html" class="btn-curiosidade-container"><button id="curiosidade"
+            type="button">Curiosidade</button></a>
+
+        <div class="filtro-dificuldade">
+          <select name="" id="campoFiltrar">
+            <option value="nivel">Todas as Dificuldades</option>
+            <option value="difAlta">Alta Dificuldade</option>
+            <option value="difMedia">Média Dificuldade</option>
+            <option value="difBaixa">Baixa Dificuldade</option>
+          </select>
+        </div>
+
+        <select id="funcao-do-campeao">
+          <option value="btn-todos">TODAS FUNÇÕES</option>
+          <option value="btn-atiradores">ATIRADORES</option>
+          <option value="btn-assassinos">ASSASSINOS</option>
+          <option value="btn-lutadores">LUTADORES</option>
+          <option value="btn-magos">MAGOS</option>
+          <option value="btn-suportes">SUPORTES</option>
+          <option value="btn-todos">TANQUES</option>
+        </select>
+
       </div>
 
-      <a href="curiosidade.html"><button id="curiosidade" type="button">Curiosidade</button></a>
+      <div id="ordemAlfabetica">
+        <label for="ordenar" class="label-ordenar">Ordenar:</label>
 
-      <select name="" id="campoFiltrar">
-        <option value="nivel">Todas as Dificuldades</option>
-        <option value="difAlta">Alta Dificuldade</option>
-        <option value="difMedia">Média Dificuldade</option>
-        <option value="difBaixa">Baixa Dificuldade</option>
-      </select>
+        <select id="ordenar">
+          <option value="crescente">A a Z</option>
+          <option value="decrescente">Z a A</option>
+        </select>
+      </div>
 
-    </div>
-
-    <div id="ordemAlfabetica">
-      <label for="ordenar" class="label-ordenar">Ordenar:</label>
-
-      <select id="ordenar">
-        <option value="crescente">A a Z</option>
-        <option value="decrescente">Z a A</option>
-      </select>
-    </div>
-
-
-    <section>
-      <nav>
-        <ul>
-          <li><button type="button" class="btn" id="btn-todos" value="btn-todos">Todos</button></li>
-          <li><button type="button" class="btn" value="btn-atiradores">Atiradores</button></li>
-          <li><button type="button" class="btn" value="btn-assassinos">Assassinos</button></li>
-          <li><button type="button" class="btn" value="btn-lutadores">Lutadores</button></li>
-          <li><button type="button" class="btn" value="btn-magos">Magos</button></li>
-          <li><button type="button" class="btn" value="btn-suportes">Suportes</button></li>
-          <li><button type="button" class="btn" value="btn-tanques">Tanques</button></li>
-        </ul>
-      </nav>
-
-      <select id="funcao-do-campeao" class="funcao-container">
-        <option  value="btn-todos">TODOS</option>
-        <option  value="btn-atiradores">ATIRADORES</option>
-        <option  value="btn-assassinos">ASSASSINOS</option>
-        <option  value="btn-lutadores">LUTADORES</option>
-        <option  value="btn-magos">MAGOS</option>
-        <option  value="btn-suportes">SUPORTES</option>
-        <option  value="btn-todos">TANQUES</option>
-      </select>
+      <div class="funcao-container">
+        <nav>
+          <ul>
+            <li><button type="button" class="btn" id="btn-todos" value="btn-todos">Todos</button></li>
+            <li><button type="button" class="btn" value="btn-atiradores">Atiradores</button></li>
+            <li><button type="button" class="btn" value="btn-assassinos">Assassinos</button></li>
+            <li><button type="button" class="btn" value="btn-lutadores">Lutadores</button></li>
+            <li><button type="button" class="btn" value="btn-magos">Magos</button></li>
+            <li><button type="button" class="btn" value="btn-suportes">Suportes</button></li>
+            <li><button type="button" class="btn" value="btn-tanques">Tanques</button></li>
+          </ul>
+        </nav>
+      </div>
     </section>
-
 
     <section id="container"></section>
 
@@ -86,7 +91,7 @@
   <script src="main.js" type="module"></script>
 
 
- 
+
 </body>
 
 </html>

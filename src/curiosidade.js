@@ -6,7 +6,7 @@ const champs = Object.values(data.data);
 // ESCONDER CARD FRENTE QUANDO VIRAR
 function esconderCardFrente() {
   const cardFrente = document.getElementById("cardCuriosidadeFrente")
-  setTimeout(function(){ cardFrente.style.display = "none"; }, 1000);
+  setTimeout(function(){ cardFrente.style.display = "none"; }, 1);
 }
 
 
