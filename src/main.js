@@ -124,18 +124,19 @@ document.getElementById("ordenar").addEventListener("change", ordenar);
 
 
 // PESQUISAR PELO NOME
-function pesquisar() {
+function pesquisarNome() {
   let textoDigitado = document.getElementById("campoPesquisar").value.toUpperCase();
   let dadosFiltrados = [];
 
-  dadosFiltrados = champs.filter(function (cartaoAtual) {
+  dadosFiltrados = dadosLol.filterData(champs, filtrarNome)
+    function filtrarNome (cartaoAtual) {
     if (cartaoAtual.name.toUpperCase().includes(textoDigitado)) {
       return true;
     }
     else {
       return false;
     }
-  })
+  }
 
   cards(dadosFiltrados);
 
@@ -147,7 +148,7 @@ function pesquisar() {
   document.getElementById('cardContainer').appendChild(botaoVoltar);
 }
 
-document.getElementById('campoPesquisar').addEventListener('keyup', pesquisar);
+document.getElementById('campoPesquisar').addEventListener('keyup', pesquisarNome);
 
 
 // VOLTAR A PÁGINA INICIAL
