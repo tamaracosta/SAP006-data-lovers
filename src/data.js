@@ -1,42 +1,21 @@
-// estas funciones son de ejemplo
 
-export const example = () => {
-  return 'example';
-};
+export const filterData = (data, condition) => {
+  return data.filter(condition);
+ }
+  
+ export const sortData = (data, sortBy, sortOrder) => {
+  sortOrder == "crescente" ?
+    data.sort((a, b) => { return a[sortBy] > b[sortBy] ? 1 : a[sortBy] < b[sortBy] ? -1 : 0 }) :
+    data.sort((a, b) => { return a[sortBy] > b[sortBy] ? -1 : a[sortBy] < b[sortBy] ? 1 : 0 })
+    return data
+ }
+  
+ export const computeStats = (data) => {
+  const soma = data.reduce((acumulado, atual) => acumulado + atual, 0);
+  const divisor = data.length;
+  const media = parseInt(soma) / divisor;
+   return media.toFixed(2);
+ }
+ 
 
-export const anotherExample = () => {
-  return 'OMG';
-};
-
-export const dadosLol = {
-  filterData:
-    function (data, condition) {
-      return data.filter(condition);
-    },
-
-  sortData:
-    function (data, sortBy, sortOrder) {
-
-      sortOrder == "crescente" ?
-        data.sort((a, b) => { return a[sortBy] > b[sortBy] ? 1 : a[sortBy] < b[sortBy] ? -1 : 0 }) :
-        data.sort((a, b) => { return a[sortBy] > b[sortBy] ? -1 : a[sortBy] < b[sortBy] ? 1 : 0 })
-
-    },
-
-  computeStats:
-    function (data) {
-
-      let totalDificuldade = 0
-      let totalPersonagens = data.length
-      let resultadoFinal;
-
-      for (let i = 0; i < data.length; i++) {
-        totalDificuldade += data[i].info.difficulty
-      }
-
-      resultadoFinal = totalDificuldade / totalPersonagens
-      return resultadoFinal.toFixed(2);
-
-    }
-}
-
+ 

@@ -1,5 +1,5 @@
 import data from './data/lol/lol.js';
-import { dadosLol } from './data.js';
+import { computeStats } from './data.js';
 
 const champs = Object.values(data.data);
 
@@ -11,6 +11,16 @@ function virarCardCuriosidade() {
 document.getElementById("descubra").addEventListener("click", virarCardCuriosidade)
 
 
+
 // CRIAR FUNCAO PARA CALCULAR O NIVEL DE DIFICULDADE DOS PERSONAGENS
-let resultadoFinal = dadosLol.computeStats(champs)
-document.getElementById('resultadoMedia').innerHTML = "A média é: " + resultadoFinal
+const arrDificuldadeCampeao = champs.map(function (campeao) {
+  return campeao.info.difficulty;
+});
+
+const resultadoFinal = computeStats(arrDificuldadeCampeao);
+document.getElementById('resultadoMedia').innerHTML = "A média é: " + resultadoFinal;
+
+
+
+ 
+
