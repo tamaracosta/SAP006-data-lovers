@@ -44,9 +44,6 @@ body {
 #img-capa {
     width: 100%;
     filter: opacity(60%);
-    /* height: 400px;
-    object-fit: cover; */
-    
 }
 
 #div-titulo {
@@ -66,8 +63,6 @@ body {
     width: 85%;
     display: block;
     margin: 1em auto 0;
-    /* margin-top: 60px; */
-    
 }
 
 .btn {
@@ -238,8 +233,6 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     justify-content: flex-end;
     margin-top: 20px;
     margin-bottom: 20px;
-    /* margin-top: 1rem;
-    margin-bottom: 2rem; */
     align-items: center;
     flex: 1;
 }  
@@ -437,15 +430,6 @@ h3 {
     font-size: 30px;
 }
 
-/* #voltarPrincipal {
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    background-color: #03FDFD;
-    margin: auto;
-      
-} */
-
 #voltarPrincipal a {
     text-decoration: none;
     color: #144444;
@@ -612,44 +596,7 @@ h3 {
     }
     
 }
-            /* testeee fundo card 
-
-            primeira
-            background: linear-gradient(
-        76deg
-        , #000000, #09ffff);
-
-
-
-        background: linear-gradient(
-185deg
-, #000000, #1ea7a7);
-
-
-
-        segunda 
-            background: linear-gradient(
-        65deg
-        , rgb(96 10 104), #065353);
-        }
         
-        
-background: linear-gradient(
-139deg
-, rgb(233 0 255), rgb(71 6 77));
-
-
-
-
-
-        terceira 
-        
-        background: linear-gradient(
-        75deg
-        , #000000, #1cbbbb);*/
-
-
-
 
 /* =============== TAIENE ============= */
 @media screen and (min-width: 320px) and (max-width: 480px){
@@ -673,10 +620,6 @@ background: linear-gradient(
     .funcao-container {
         display: none;
     }
-/*     
-    #ordemAlfabetica{
-        display: none;
-    } */
 
     .label-ordenar {
         display: none;
@@ -734,32 +677,24 @@ background: linear-gradient(
     
     .filtro-dificuldade {
          width: 45vw; 
-        
-        /* margin: 0px 0px 15px 3vw;  */
     } 
 
-    /*adicionei */
+    
     #pesquisar {
         width: 80vw;
         margin: 20px auto;
     }
         
-    
-
     a.btn-curiosidade-container,
     #funcao-do-campeao, .filtro-dificuldade, #ordenar {
         width: 45vw;
         margin: auto;
-       
-        /* margin: 0px 3vw 15px 0; */
-        /* margin: auto; */
     }
 
     #curiosidade,
     #campoFiltrar,
     #funcao-do-campeao,
     #pesquisar {
-        /* font-size: 3.5vw; */
         font-size: 3.2vw;
     }
 
@@ -768,7 +703,6 @@ background: linear-gradient(
     }
 
     #ordemAlfabetica {
-        /* margin: 0px 1rem 0.5rem 0px; */
         margin: 1em auto;
         display: initial;
         flex: none;
@@ -817,26 +751,18 @@ background: linear-gradient(
         width: 40%;
     }
 
-    /* add */
-    
+        
     input::placeholder, #campoFiltrar, #funcao-do-campeao{
-    /* color: rgb(236, 236, 236);
-    text-align: center; */
-    /* font-size: 20px; */
-    padding-left: 5px;
+        padding-left: 5px;
+    }
 
-}
+    #ordenar {
+        font-size: 3.2vw;
+    }
 
-#ordenar {
-    font-size: 3.2vw;
-    
-}
-
-
-.botao-menu {
-    margin: 1em auto;
-    /* width: 45vw; */
-}
+    .botao-menu {
+        margin: 1em auto;
+    }
 
 
 }
@@ -844,84 +770,5 @@ background: linear-gradient(
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* #pesquisar,
-    .filtro-dificuldade {
-        width: 45vw;
-        margin: 10px 0px 10px 3vw;
-    }
-
-    a.btn-curiosidade-container,
-    #funcao-do-campeao {
-        width: 45vw;
-        margin: 10px 3vw 10px 0;
-    }
-
-    #curiosidade,
-    #campoFiltrar,
-    #funcao-do-campeao,
-    #pesquisar {
-        font-size: 3vw;
-    }
-
-    input::placeholder {
-        font-size: 4vw;
-    }
-
-    #ordemAlfabetica {
-        margin: 1rem 1rem;
-    }
-    
-    #cardContainer { 
-        margin: auto;
-    }
-
-    #foto {
-        display: none;
-    } 
-
-
-    #campoPesquisar {
-        margin-left: 1px;
-    }
-    /* #borda-circle {
-        width: 90vw;
-        height: 90vw;
-    }
-    #cardCuriosidadeFrente,
-    #cardCuriosidadeVerso {
-        width: 80vw;
-        height: 80vw;
-    }
-    #cardCuriosidade {
-        margin-top: 5vw;
-    
-    }
-    #cardCuriosidadeFrente h2 {
-        padding-top: 15vw;
-        font-size: 1em; 
-    } */
-
-     
     
     

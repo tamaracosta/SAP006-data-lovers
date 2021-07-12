@@ -4,10 +4,11 @@ export const filterData = (data, condition) => {
  }
   
  export const sortData = (data, sortBy, sortOrder) => {
-  sortOrder == "crescente" ?
+  
+  return sortOrder == "crescente" ?
     data.sort((a, b) => { return a[sortBy] > b[sortBy] ? 1 : a[sortBy] < b[sortBy] ? -1 : 0 }) :
     data.sort((a, b) => { return a[sortBy] > b[sortBy] ? -1 : a[sortBy] < b[sortBy] ? 1 : 0 })
-    return data
+    
  }
   
  export const computeStats = (data) => {
