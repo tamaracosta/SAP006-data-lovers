@@ -1,4 +1,3 @@
-
 export const filterData = (data, condition) => {
   return data.filter(condition);
  }
@@ -12,11 +11,12 @@ export const filterData = (data, condition) => {
  }
   
  export const computeStats = (data) => {
+  if (Array.isArray(data) === false) {
+    throw TypeError();
+  }
   const soma = data.reduce((acumulado, atual) => acumulado + atual, 0);
   const divisor = data.length;
   const media = parseInt(soma) / divisor;
    return media.toFixed(2);
  }
- 
-
  

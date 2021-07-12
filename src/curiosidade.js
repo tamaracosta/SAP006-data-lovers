@@ -19,8 +19,3 @@ const arrDificuldadeCampeao = champs.map(function (campeao) {
 
 const resultadoFinal = computeStats(arrDificuldadeCampeao);
 document.getElementById('resultadoMedia').innerHTML = "A média é: " + resultadoFinal;
-
-
-
- 
-

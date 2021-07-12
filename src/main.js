@@ -1,7 +1,8 @@
-import data from './data/lol/lol.js';
-import { filterData, sortData} from './data.js';
+import { filterData, sortData } from './data.js';
 
-let champs = Object.values(data.data);
+import data from './data/lol/lol.js';
+
+const champs = Object.values(data.data);
 let cartoesFiltradosPorFuncao = champs;
 
 
@@ -41,12 +42,13 @@ function cards(cartoesFiltrados) {
     const card = document.createElement("div");
     card.setAttribute("class", "card");
     document.getElementById("cardContainer").appendChild(card);
+    card.addEventListener("click", virarCard);
 
     //CARD-FRONT
     const cardFront = document.createElement("div");
     cardFront.setAttribute("class", "card-front");
     card.appendChild(cardFront);
-    card.addEventListener("click", virarCard);
+
 
     //CARD-BACK
     const cardBack = document.createElement("div");
@@ -94,23 +96,21 @@ function cards(cartoesFiltrados) {
     champInfoContainer.appendChild(infoPersonagem);
     cardBack.appendChild(champInfoContainer);
 
-    
   }
 }
 
 // FUNÇÃO VIRAR CARTA E ALTERNAR (TOGGLE) ENTRE AS CLASS 
 // EVENT DELEGATION
+function virarCard(x) {
+  const divDoCartao = x.target.parentNode.parentNode;
 
-  function virarCard(x) {
-      const divDoCartao = x.target.parentNode.parentNode;
+  if (divDoCartao.classList.contains("card")) {
+    divDoCartao.classList.toggle("flip");
 
-      if (divDoCartao.classList.contains("card")) {
-        divDoCartao.classList.toggle("flip");
-
-      } else if (divDoCartao.parentNode.classList.contains("card")) {
-        divDoCartao.parentNode.classList.toggle("flip");
-      }
+  } else if (divDoCartao.parentNode.classList.contains("card")) {
+    divDoCartao.parentNode.classList.toggle("flip");
   }
+}
 
 
 function ordenar(event) {
@@ -127,11 +127,11 @@ document.getElementById("ordenar").addEventListener("change", ordenar);
 
 // PESQUISAR PELO NOME
 function pesquisarNome() {
-  let textoDigitado = document.getElementById("campoPesquisar").value.toUpperCase();
-  let dadosFiltrados = [];
+  const textoDigitado = document.getElementById("campoPesquisar").value.toUpperCase();
 
-  dadosFiltrados = filterData(champs, filtrarNome)
-    function filtrarNome (cartaoAtual) {
+  const dadosFiltrados = filterData(champs, filtrarNome)
+
+  function filtrarNome(cartaoAtual) {
     if (cartaoAtual.name.toUpperCase().includes(textoDigitado)) {
       return true;
     }
@@ -143,7 +143,7 @@ function pesquisarNome() {
   cards(dadosFiltrados);
 
   // CRIADO BOTÃO VOLTAR (APARECER SÓ QUANDO FILTRAR)
-  let botaoVoltar = document.createElement('button');
+  const botaoVoltar = document.createElement('button');
   botaoVoltar.setAttribute('class', 'btnVoltar');
   botaoVoltar.addEventListener("click", voltarCard);
   botaoVoltar.innerHTML = "Voltar";
@@ -161,12 +161,11 @@ function voltarCard() {
 // FILTRAR NÍVEL DE DIFICULDADE
 function filtrarDificuldade(cartoes) {
 
-  let nivelDificuldade = document.getElementById('campoFiltrar').value;
-  let dadosFiltrados = [];
-  dadosFiltrados = filterData(cartoes, dificuldade)
+  const nivelDificuldade = document.getElementById('campoFiltrar').value;
 
-    function dificuldade(cartaoAtual) {
-    let numDificuldade = (cartaoAtual.info.difficulty);
+  const dadosFiltrados = filterData(cartoes, dificuldade);
+  function dificuldade(cartaoAtual) {
+    const numDificuldade = (cartaoAtual.info.difficulty);
 
     if (nivelDificuldade == "difBaixa" && numDificuldade >= 1 && numDificuldade <= 3) {
       return true;
@@ -182,14 +181,14 @@ function filtrarDificuldade(cartoes) {
     }
   }
   return dadosFiltrados;
-}
 
+}
 document.getElementById('campoFiltrar').addEventListener('change', todosFiltros)
 
 
 const botoesAbas = [document.querySelectorAll("nav button")];
 
-//FUNÇÕES PARA MOSTRAR CONTÉUDA NAS ABAS - EXCETO ABA TODOS
+//FUNÇÕES PARA MOSTRAR CONTÉUDO NAS ABAS
 function abas(funcaoDoCampeao) {
   function tag(funcao) {
     return funcaoDoCampeao.includes(funcao);
@@ -199,51 +198,46 @@ function abas(funcaoDoCampeao) {
     return champ.tags.some(tag);
   }
 
-  const cartoes = filterData(champs, funcaoPersonagem)
+  const cartoes = filterData(champs, funcaoPersonagem);
   cartoesFiltradosPorFuncao = cartoes;
   todosFiltros();
+
 }
 
 
 function mostrarAbaAtual(value) {
+
   let funcaoPersonagemAba;
   switch (value) {
     case "btn-todos":
-      cartoesFiltradosPorFuncao = champs;
-      todosFiltros();
+      funcaoPersonagemAba = ["Marksman", "Assassin", "Fighter", "Mage", "Support", "Tank"];
       break;
 
     case "btn-atiradores":
       funcaoPersonagemAba = "Marksman";
-      abas(funcaoPersonagemAba);
       break;
 
     case "btn-assassinos":
       funcaoPersonagemAba = "Assassin";
-      abas(funcaoPersonagemAba);
       break;
 
     case "btn-lutadores":
       funcaoPersonagemAba = "Fighter";
-      abas(funcaoPersonagemAba);
       break;
 
     case "btn-magos":
       funcaoPersonagemAba = "Mage";
-      abas(funcaoPersonagemAba);
       break;
 
     case "btn-suportes":
       funcaoPersonagemAba = "Support";
-      abas(funcaoPersonagemAba);
       break;
 
     case "btn-tanques":
       funcaoPersonagemAba = "Tank";
-      abas(funcaoPersonagemAba);
       break;
-
   }
+  return abas(funcaoPersonagemAba);
 }
 
 function removerClasseAtiva() {
@@ -281,6 +275,7 @@ iniciar();
 
 //REALIZA TODOS OS FILTROS ,QUALQUER ABA, QUALQUER NÍVEL DE DIFICULDADE
 function todosFiltros() {
-  let cartoesFiltradosPorNivel = filtrarDificuldade(cartoesFiltradosPorFuncao);
+  const cartoesFiltradosPorNivel = filtrarDificuldade(cartoesFiltradosPorFuncao);
   cards(cartoesFiltradosPorNivel);
 }
+
