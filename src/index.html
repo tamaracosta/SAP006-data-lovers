@@ -7,15 +7,20 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
   <div id="root">
 
-    <header>
-      
-      <h1 class="tituloLOL"><span>LEAGUE OF</span> LEGENDS' CARDS</h1>
+    <header id="div-header">
+      <div id="div-titulo">
+        <h1 class="tituloLOL"><span>LEAGUE OF</span> LEGENDS' CARDS</h1>
+      </div>
+      <img id="img-capa" src="img/capa.jpg" alt="Imagem ilustrativa LOL">
 
     </header>
 
@@ -23,15 +28,15 @@
 
       <div id="inputs">
 
-        <div id="pesquisar">
+        <div class="botao-menu" id="pesquisar">
           <input id="campoPesquisar" type="search" placeholder="Pesquisar nome" />
           <span class="material-icons">search</span>
         </div>
 
-        <a href="curiosidade.html" class="btn-curiosidade-container"><button id="curiosidade"
+        <a href="curiosidade.html" class="botao-menu btn-curiosidade-container"><button id="curiosidade"
             type="button">Curiosidade</button></a>
 
-        <div class="filtro-dificuldade">
+        <div class="botao-menu filtro-dificuldade">
           <select name="" id="campoFiltrar">
             <option value="nivel">Todas Dificuldades</option>
             <option value="difAlta">Alta Dificuldade</option>
@@ -40,7 +45,7 @@
           </select>
         </div>
 
-        <select id="funcao-do-campeao">
+        <select class="botao-menu" id="funcao-do-campeao">
           <option value="btn-todos">Todas Funções</option>
           <option value="btn-atiradores">Atiradores</option>
           <option value="btn-assassinos">Assassinos</option>
@@ -50,16 +55,17 @@
           <option value="btn-todos">Tanques</option>
         </select>
 
+        <div class="botao-menu" id="ordemAlfabetica">
+          <label for="ordenar" class="label-ordenar">Ordenar:</label>
+
+          <select id="ordenar">
+            <option value="crescente">A a Z</option>
+            <option value="decrescente">Z a A</option>
+          </select>
+        </div>
+
       </div>
 
-      <div id="ordemAlfabetica">
-        <label for="ordenar" class="label-ordenar">Ordenar:</label>
-
-        <select id="ordenar">
-          <option value="crescente">A a Z</option>
-          <option value="decrescente">Z a A</option>
-        </select>
-      </div>
 
       <div class="funcao-container">
         <nav>

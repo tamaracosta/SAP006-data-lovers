@@ -11,15 +11,18 @@ body {
     /* background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);  */            
     background-image: linear-gradient(to bottom, #0e0021, #310968);
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
 } 
 
  .tituloLOL {
-    color:#45dcf0;
+    /* color:#45dcf0; */
+    color: #d0cdd3;
     font-size: 40px;
     margin: 30px;
     text-align: center;
     animation: neon 3s alternate infinite ease-in-out;
-    --cor--neon: #f7f7f7;
+    --cor--neon: #ffffff;
+    
 }
 
  @keyframes neon {
@@ -31,11 +34,35 @@ body {
     }
 }
 
+
+#div-header {
+    width: 100%;
+    position: relative;
+}
+
+
+#img-capa {
+    width: 100%;
+    filter: opacity(60%);
+}
+
+#div-titulo {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    z-index: 1;
+}
+
+#div-titulo span {
+    display: block;
+}
+
 #filtros {
     width: 85%;
     display: block;
-    margin: auto;
-    margin-top: 60px;
+    margin: 1em auto 0;
 }
 
 .btn {
@@ -167,13 +194,25 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     border: 3px rgb(255, 0, 255) solid;
 }
 
-#curiosidade {
+#curiosidade  {
     background-color: #157777;
     border: 3px #03FDFD solid;
     color:#03FDFD;
     font-size: 1.5rem;
     text-transform: none;
     padding: 0;
+}
+
+
+#ordenar {
+    background-color: rgb(31, 97, 69);
+    border-radius: 15px;
+    height: 40px;
+    width: 5em;
+    border: 3px rgb(0, 255, 149) solid;
+    color:rgb(236, 236, 236);
+    font-size: 1em;
+    outline: none;
 }
 
 #inputs {
@@ -192,8 +231,10 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
 #ordemAlfabetica {
     display: flex;
     justify-content: flex-end;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex: 1;
 }  
     
 #ordemAlfabetica label {
@@ -317,6 +358,7 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     display: none;
 }
 
+
 /* ==========================PAGINA CURIOSIDADE==================================== */
 
 .face {
@@ -388,15 +430,6 @@ h3 {
     font-size: 30px;
 }
 
-/* #voltarPrincipal {
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    background-color: #03FDFD;
-    margin: auto;
-      
-} */
-
 #voltarPrincipal a {
     text-decoration: none;
     color: #144444;
@@ -447,24 +480,30 @@ h3 {
     position: absolute;        
 }
 
-@keyframes spin {
+    @keyframes spin {
     100% {
         transform: rotate(0.3turn);
     }
-} 
+}
+
 
 /* ==========================RESPONSIVIDADE==================================== */
-@media screen and (min-width: 481px) and (max-width: 768px){
+@media screen and (min-width: 481px) and (max-width: 1024px){
     body {
-        /* background: rgb(6,6,6);
-        background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px); */
+         background: rgb(6,6,6);
+        background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px); 
         background-image: linear-gradient(to bottom, #0e0021, #310968);
         background-attachment: fixed;
         min-height: 100vh;
      }
+    
 
     .tituloLOL span {
         display: block;
+    }
+
+    .tituloLOL {
+        font-size: 5vw;
     }
 
     #filtros {
@@ -506,12 +545,16 @@ h3 {
         -webkit-transform: rotateY(180deg);
     }
 
+    .card-back span img {
+       display: none;
+    }
+
     .card-back .champTitle-container {
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
     .card-back .headerPersonagem p {
-        font-size: 2.5vw;
+        font-size: 4vw;
         margin-left: 5px;
     }
 
@@ -552,37 +595,10 @@ h3 {
         display: none;
     }
     
-
-
-            /* testeee fundo card 
-            primeira
-            background: linear-gradient(
-        76deg
-        , #000000, #09ffff);
-        background: linear-gradient(
-185deg
-, #000000, #1ea7a7);
-        segunda 
-            background: linear-gradient(
-        65deg
-        , rgb(96 10 104), #065353);
-        }
-        
-        
-background: linear-gradient(
-139deg
-, rgb(233 0 255), rgb(71 6 77));
-        terceira 
-        
-        background: linear-gradient(
-        75deg
-        , #000000, #1cbbbb);*/
-
-
 }
+        
 
 /* =============== TAIENE ============= */
-
 @media screen and (min-width: 320px) and (max-width: 480px){
 
     body {
@@ -604,8 +620,8 @@ background: linear-gradient(
     .funcao-container {
         display: none;
     }
-    
-    #ordemAlfabetica{
+
+    .label-ordenar {
         display: none;
     }
     
@@ -658,28 +674,38 @@ background: linear-gradient(
         justify-content: space-between;
     }
 
-    #pesquisar,
+    
     .filtro-dificuldade {
-        width: 45vw;
-        margin: 0px 0px 15px 3vw;
-    }
+         width: 45vw; 
+    } 
 
+    
+    #pesquisar {
+        width: 80vw;
+        margin: 20px auto;
+    }
+        
     a.btn-curiosidade-container,
-    #funcao-do-campeao {
+    #funcao-do-campeao, .filtro-dificuldade, #ordenar {
         width: 45vw;
-        margin: 0px 3vw 15px 0;
+        margin: auto;
     }
 
     #curiosidade,
     #campoFiltrar,
     #funcao-do-campeao,
-    #pesquisar,
+    #pesquisar {
+        font-size: 3.2vw;
+    }
+
     input::placeholder {
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
     #ordemAlfabetica {
-        margin: 0px 1rem 0.5rem 0px;
+        margin: 1em auto;
+        display: initial;
+        flex: none;
     }
     
     #cardContainer { 
@@ -724,5 +750,19 @@ background: linear-gradient(
     #descubra, #voltarPrincipal {
         width: 40%;
     }
+
+        
+    input::placeholder, #campoFiltrar, #funcao-do-campeao{
+        padding-left: 5px;
+    }
+
+    #ordenar {
+        font-size: 3.2vw;
+    }
+
+    .botao-menu {
+        margin: 1em auto;
+    }
+
 
 }

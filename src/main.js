@@ -127,17 +127,18 @@ document.getElementById("ordenar").addEventListener("change", ordenar);
 
 // PESQUISAR PELO NOME
 function pesquisarNome() {
-  let textoDigitado = document.getElementById("campoPesquisar").value.toUpperCase();
-  let dadosFiltrados = [];
+  const textoDigitado = document.getElementById("campoPesquisar").value.toUpperCase();
 
-  dadosFiltrados = champs.filter(function (cartaoAtual) {
+  const dadosFiltrados = filterData(champs, filtrarNome)
+
+  function filtrarNome(cartaoAtual) {
     if (cartaoAtual.name.toUpperCase().includes(textoDigitado)) {
       return true;
     }
     else {
       return false;
     }
-  })
+  }
 
   cards(dadosFiltrados);
 
@@ -178,11 +179,10 @@ function filtrarDificuldade(cartoes) {
     else if (nivelDificuldade == "nivel") {
       return true;
     }
-
-    return dadosFiltrados;
   }
-}
+  return dadosFiltrados;
 
+}
 document.getElementById('campoFiltrar').addEventListener('change', todosFiltros)
 
 
@@ -207,37 +207,37 @@ function abas(funcaoDoCampeao) {
 
 function mostrarAbaAtual(value) {
 
-  let funcaoDoCampeao;
+  let funcaoPersonagemAba;
   switch (value) {
     case "btn-todos":
-      funcaoDoCampeao = ["Marksman", "Assassin", "Fighter", "Mage", "Support", "Tank"];
+      funcaoPersonagemAba = ["Marksman", "Assassin", "Fighter", "Mage", "Support", "Tank"];
       break;
 
     case "btn-atiradores":
-      funcaoDoCampeao = "Marksman";
+      funcaoPersonagemAba = "Marksman";
       break;
 
     case "btn-assassinos":
-      funcaoDoCampeao = "Assassin";
+      funcaoPersonagemAba = "Assassin";
       break;
 
     case "btn-lutadores":
-      funcaoDoCampeao = "Fighter";
+      funcaoPersonagemAba = "Fighter";
       break;
 
     case "btn-magos":
-      funcaoDoCampeao = "Mage";
+      funcaoPersonagemAba = "Mage";
       break;
 
     case "btn-suportes":
-      funcaoDoCampeao = "Support";
+      funcaoPersonagemAba = "Support";
       break;
 
     case "btn-tanques":
-      funcaoDoCampeao = "Tank";
+      funcaoPersonagemAba = "Tank";
       break;
   }
-  return abas(funcaoDoCampeao);
+  return abas(funcaoPersonagemAba);
 }
 
 function removerClasseAtiva() {
@@ -278,3 +278,4 @@ function todosFiltros() {
   const cartoesFiltradosPorNivel = filtrarDificuldade(cartoesFiltradosPorFuncao);
   cards(cartoesFiltradosPorNivel);
 }
+
