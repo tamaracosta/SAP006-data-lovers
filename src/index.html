@@ -7,9 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -17,10 +15,22 @@
   <div id="root">
 
     <header id="div-header">
-      <div id="div-titulo">
-        <h1 class="tituloLOL"><span>LEAGUE OF</span> LEGENDS' CARDS</h1>
+
+      <div id="logo-container">
+        <img id="img-logo" src="img/logo-1200-589b3ef693ce8a750fa4b4704f1e61f2.png">
       </div>
-      <img id="img-capa" src="img/capa.jpg" alt="Imagem ilustrativa LOL">
+
+      <img id="img-capa" src="img/c-o-champion-yone-spirit-blossom-splash.jpg">
+      <img id="img-caixa" src="img/caixa 3px.png">
+
+      <div id="div-titulo">
+        <h1 class="tituloLOL"><span>ESCOLHA SEU</span> CAMPEÃO</h1>
+      </div>
+
+      <div class="botao-menu" id="pesquisar">
+        <input id="campoPesquisar" type="search" placeholder="Pesquisar nome do campeão" />
+        <span class="material-icons">search</span>
+      </div>
 
     </header>
 
@@ -28,12 +38,7 @@
 
       <div id="inputs">
 
-        <div class="botao-menu" id="pesquisar">
-          <input id="campoPesquisar" type="search" placeholder="Pesquisar nome" />
-          <span class="material-icons">search</span>
-        </div>
-
-        <a href="curiosidade.html" class="botao-menu btn-curiosidade-container"><button id="curiosidade"
+        <a href="curiosidade.html" class="btn-curiosidade-container"><button id="curiosidade" class="botao-menu"
             type="button">Curiosidade</button></a>
 
         <div class="botao-menu filtro-dificuldade">
@@ -56,11 +61,11 @@
         </select>
 
         <div class="botao-menu" id="ordemAlfabetica">
-          <label for="ordenar" class="label-ordenar">Ordenar:</label>
+          <!-- <label for="ordenar" class="label-ordenar">Ordenar:</label> -->
 
           <select id="ordenar">
-            <option value="crescente">A a Z</option>
-            <option value="decrescente">Z a A</option>
+            <option value="crescente">Ordenar: A a Z</option>
+            <option value="decrescente">Ordenar: Z a A</option>
           </select>
         </div>
 
