@@ -4,26 +4,40 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;   
+}
+
+@font-face {
+    font-family: "beaufortLOL";
+    src: url("fonts/BeaufortforLOL-HeavyItalic.otf"), format(opentype);
+    font-style: italic;
 }
 
 body {
     /* background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);  */            
-    background-image: linear-gradient(to bottom, #0e0021, #310968);
+    /* background-image: linear-gradient(to bottom, #0e0021, #310968); */
+
+    background-color: #1e011f;
+    background-image: url("img/BACKGROUNDSATURADO.png");
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
+    background-attachment: fixed;
+    background-size: cover; /*fixa o background no safari*/
 } 
 
  .tituloLOL {
-    /* color:#45dcf0; */
-    color: #d0cdd3;
-    font-size: 40px;
-    margin: 30px;
+    color: #d99E54;
+    font-family: "beaufortLOL", serif;
+    font-size: 50px;
+    font-style: italic;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    margin-top: 5vw;
     text-align: center;
     animation: neon 3s alternate infinite ease-in-out;
-    --cor--neon: #ffffff;
-    
+    --cor--neon: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(136, 123, 2);
 }
 
  @keyframes neon {
@@ -39,16 +53,38 @@ body {
 #div-header {
     width: 100%;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    justify-content: center;
 }
 
-
 #img-capa {
-    width: 100%;
-    filter: opacity(60%);
+    height: 35vw;
+    width: 90%;
+    margin-top: 1.9vw;
+    object-fit: cover;
+}
+
+#img-caixa {
+    position: absolute;
+    height: 39vw;
+    width: 90%;
+}
+
+#logo-container {
+    position: absolute;
+    left: 8%;
+    top: 1.9vw;
+}
+
+#img-logo {
+    width: 15%;
 }
 
 #div-titulo {
     position: absolute;
+    width: 80%;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -91,7 +127,7 @@ button:hover{
     height: 2px;
     width: 0%;
     /* background-color: rgb(238, 224, 32); */
-    background-color: rgb(0, 255, 255);
+    background-color: #d99E54;
     transition: 0.3s;
 }
 
@@ -106,8 +142,8 @@ button:hover{
 }
 
 nav {
-    border-top: rgb(250, 250, 250) 1px solid;
-    border-bottom: rgb(250, 250, 250) 1px solid;
+    border-top: rgb(255, 255, 255) 1px solid;
+    border-bottom: rgb(255, 255, 255) 1px solid;
     
 }
 
@@ -120,22 +156,26 @@ ul {
 
 #pesquisar {
     display: flex;
-    background-color: rgb(30, 31, 92);
-    border-radius: 15px;
-    border: 3px rgb(25, 0, 255) solid;
+    background-color: #ffffff;
+    border: 3px ;
     height: 40px;
-    width: 250px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    width: 38vw;
+    margin-top: 28vw;
+    position: absolute;
 }
 
 #campoPesquisar {
     background-color: transparent;
     border: none;
-    color:beige;
+    color:rgb(0, 0, 0);
     margin-left: 10px;
     font-size: 1.2em;
     width: 100%;
+}
+
+#campoPesquisar::placeholder {
+    color: black;
+    text-align: center;
 }
 
 #campoPesquisar:focus{
@@ -143,7 +183,7 @@ ul {
 }
 
 span.material-icons {
-    color: white;
+    color: rgb(0, 0, 0);
     margin: auto;
     margin-right: 5px;
 }
@@ -167,58 +207,70 @@ span.material-icons {
     font-size: 15px;
 }
 
-a.btn-curiosidade-container, .filtro-dificuldade {
+.btn-curiosidade-container, .filtro-dificuldade, #ordemAlfabetica{
     width: 250px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
 }
 
-.btn-curiosidade-container {
-    margin-left: 8vw;
-    margin-right: 8vw;
-}
-
-input::placeholder, #campoFiltrar, #funcao-do-campeao{
-    color: rgb(236, 236, 236);
+/* #campoFiltrar, #funcao-do-campeao{
     text-align: center;
-    font-size: 20px;
-    padding: 0 10px;
-}
+    text-align-last: center; centraliza para chrome no celular
+  
+  
+} */
 
 #campoFiltrar, 
 #curiosidade, 
-#funcao-do-campeao {
-    background-color: rgb(94, 34, 91);
-    border-radius: 15px;
+#funcao-do-campeao,
+#ordenar /*tirar se usar label*/{
+    color: rgb(236, 236, 236);
+    font-size: 1.2em;
+    background-color: #110d24;
     height: 40px;
     width: 100%;
-    border: 3px rgb(255, 0, 255) solid;
+    border: 2px solid #d99E54;
+    box-shadow: 3px 3px 3px black;
+
+    text-align: center;
+    text-align-last: center; /*centraliza para chrome no celular*/
 }
 
 #curiosidade  {
-    background-color: #157777;
-    border: 3px #03FDFD solid;
-    color:#03FDFD;
-    font-size: 1.5rem;
     text-transform: none;
     padding: 0;
 }
 
-
-#ordenar {
-    background-color: rgb(31, 97, 69);
-    border-radius: 15px;
+/* #ordemAlfabetica {
+    font-size: 1.2em;
+    background-color: #110d24;
     height: 40px;
-    width: 5em;
-    border: 3px rgb(0, 255, 149) solid;
-    color:rgb(236, 236, 236);
+    border: 2px solid #d99E54;
+    box-shadow: 3px 3px 3px black;
+    display: flex;
+    align-items: center;
+} */
+
+/* #ordenar {
+    width: 100%;
+    background-color: transparent;
+    height: 36px;
+    border: none;
+    color: #ffffff;
+    text-align: end; centraliza para firefox anterior
+    text-align-last: right; alinha para chrome, no celular
+    direction: rtl; alinhar o seletor a esquerda e o texto a direita - para bug do safari
+  
     font-size: 1em;
     outline: none;
-}
+    overflow: hidden;
+    z-index: 2;
+} */
 
 #inputs {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
     
@@ -228,21 +280,14 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     justify-content: center;
     margin: 2rem auto auto auto;
 } 
-
-#ordemAlfabetica {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    align-items: center;
-    flex: 1;
-}  
     
-#ordemAlfabetica label {
-    color:beige;
+/* #ordemAlfabetica label {
+    color:rgb(255, 255, 255);
     font-size: 20px;
-    margin-right: 20px;
-}
+    margin-left: 2vw;
+    position: absolute;
+    z-index: 1;
+} */
 
 .card {
     display: flex;
@@ -262,7 +307,8 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     display: block;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    background-color: #0c1618;
+    /* background-color: #101f22; */
+    background-color: rgb(26, 2, 31);
 }
 
 .card-front img {
@@ -283,7 +329,8 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
 .card-front {
     transform: rotateX(0deg);
     -webkit-transform: rotateX(0deg);
-    border-image: linear-gradient(135deg, rgba(5,255,246,1), rgba(33,47,69,1), rgba(77,25,77,1), rgba(33,47,69,1), rgba(5,255,246,1))1;
+    border-image: linear-gradient(135deg, #F79D20, #dac071, #4d194d, #dac071,#F79D20)1; 
+    /* border-image: linear-gradient(135deg, rgba(5,255,246,1), rgba(33,47,69,1), rgba(77,25,77,1), rgba(33,47,69,1), rgba(5,255,246,1))1; */
 }
 
 .card-back {
@@ -302,7 +349,6 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     display: flex;
     align-items: flex-start;
     height: 25%;
-    /* background: linear-gradient(76deg, #000000, #09ffff); */
     background: linear-gradient(185deg, #000000, #1ea7a7);
 }   
 
@@ -327,12 +373,11 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     font-size: 1.1rem;
     background-image: linear-gradient(80deg, rgb(197 45 210), transparent);
     color: rgb(255 255 255);
-
 }
 
 .card-back .champInfo {
     font-size: 1.2rem;
-    background: linear-gradient(75deg, #000000, #1cbbbb);
+    background: linear-gradient(20deg, #000000, #1cbbbb);
     line-height: 1.5rem;
     font-style: none;
     text-align: center;
@@ -353,11 +398,23 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
 .card-front:hover { 
     transform: scale(1.1);
     cursor: pointer;
-}
+    animation: neonCard 1s alternate infinite ease-in-out;
+    /* --cor--neonCard: rgb(0, 238, 255); */
+    --cor--neonCard: #dac071;
+}   
+    @keyframes neonCard {
+        from {
+            filter: drop-shadow(0 0 10px var(--cor--neonCard));
+        }
+        to {
+            filter: drop-shadow(0 0 10px var(--cor--neonCard));
+        }
+    }
 
 #funcao-do-campeao {
     display: none;
 }
+
 
 
 /* ==========================PAGINA CURIOSIDADE==================================== */
@@ -489,7 +546,7 @@ h3 {
 
 
 /* ==========================RESPONSIVIDADE==================================== */
-@media screen and (min-width: 481px) and (max-width: 1024px){
+@media screen and (min-width: 481px) and (max-width: 768px){
     body {
          background: rgb(6,6,6);
         background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px); 
@@ -509,7 +566,8 @@ h3 {
 
     #filtros {
         width: 100%;
-        margin-top: 0px;
+        display: flex;
+        justify-content: center;
     }
     
     .funcao-container {
@@ -551,22 +609,22 @@ h3 {
     }
 
     .card-back .champTitle-container {
-        font-size: 4vw;
+        font-size: 3vw; /*4vw fica grande no firefox*/
     }
 
     .card-back .headerPersonagem p {
-        font-size: 4vw;
+        font-size: 3vw; /*4vw fica grande no firefox*/
         margin-left: 5px;
     }
 
     #inputs {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        width: 96%;  
     }
 
-    #pesquisar,
-    .filtro-dificuldade {
+    .filtro-dificuldade,
+    #ordemAlfabetica {
         width: 45vw;
         margin: 10px 0px 10px 3vw;
     }
@@ -580,7 +638,8 @@ h3 {
     #curiosidade,
     #campoFiltrar,
     #funcao-do-campeao,
-    #pesquisar {
+    #pesquisar,
+    #ordemAlfabetica label {
         font-size: 0.9em;
     }
 
@@ -588,14 +647,13 @@ h3 {
         font-size: 0.9em;
     }
 
-    #ordemAlfabetica {
-        margin: 1rem 1rem;
-    }
-    
-      #foto {
+    #foto {
         display: none;
     }
     
+    .containerCirculo {
+        margin-top: 10vh;
+    }
 }
         
 
@@ -603,28 +661,28 @@ h3 {
 @media screen and (min-width: 320px) and (max-width: 480px){
 
     body {
-        background: rgb(6,6,6);
-        background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);
+        /* background: rgb(6,6,6); */
+        /* background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px); */
         min-height: 100vh;
-        background-attachment: fixed; 
+        /* background-attachment: fixed;  */
     }
 
     .tituloLOL {
-        font-size: 7vw;
+        /* font-size: 7vw; */
+        display: none;
     }
 
     #filtros {
         width: 100%;
-        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
     }
     
     .funcao-container {
         display: none;
     }
 
-    .label-ordenar {
-        display: none;
-    }
     
     #funcao-do-campeao {
         display: block;
@@ -633,7 +691,6 @@ h3 {
     .card-front,
     .card-back {
         width: 44vw;
-        background-color: #142d33;
         margin: 2vw;
     } 
 
@@ -645,6 +702,8 @@ h3 {
     .card-front span{
         font-size: 6vw;
         max-width: 100%;
+        margin-bottom: 0px;
+        height: calc(63vw -152px);
     }
 
     .card-front:hover {
@@ -660,7 +719,8 @@ h3 {
         display: none;
     }
 
-    .card-back .champTitle-container {
+    .card-back .champTitle-container,
+    .card-back .champInfo {
         font-size: 4vw;
     }
 
@@ -672,43 +732,36 @@ h3 {
     #inputs {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        width: 96%;
+        margin-top: 45px;
     }
 
-    
-    .filtro-dificuldade {
-         width: 45vw; 
-    } 
+    .btn-curiosidade-container, .filtro-dificuldade, #ordemAlfabetica, #funcao-do-campeao{
+        width: 45vw;
+    }
 
     
     #pesquisar {
         width: 80vw;
-        margin: 20px auto;
-    }
-        
-    a.btn-curiosidade-container,
-    #funcao-do-campeao, .filtro-dificuldade, #ordenar {
-        width: 45vw;
-        margin: auto;
-    }
+        margin-top: 40vw;
+    } 
 
     #curiosidade,
     #campoFiltrar,
     #funcao-do-campeao,
-    #pesquisar {
-        font-size: 3.2vw;
+    #pesquisar,
+    #ordemAlfabetica label {
+        font-size: 3.2vw; /*maior fica grande no chrome*/
+    }
+
+    #ordemAlfabetica label {
+       margin-left: 5vw;
     }
 
     input::placeholder {
         font-size: 4vw;
     }
 
-    #ordemAlfabetica {
-        margin: 1em auto;
-        display: initial;
-        flex: none;
-    }
-    
     #cardContainer { 
         margin: auto;
     }
@@ -751,9 +804,8 @@ h3 {
     #descubra, #voltarPrincipal {
         width: 40%;
     }
-
-        
-    input::placeholder, #campoFiltrar, #funcao-do-campeao{
+  
+    input::placeholder{
         padding-left: 5px;
     }
 
@@ -761,9 +813,19 @@ h3 {
         font-size: 3.2vw;
     }
 
-    .botao-menu {
-        margin: 1em auto;
+    .containerCirculo {
+        margin-top: 10vh;
     }
 
+    #logo-container {
+        transform: translate(-50%, -50%);
+        top: 60%;
+        left: 50%;
+        z-index: 1;
+    }
+
+    #img-logo {
+        width: 100%;
+    }
 
 }

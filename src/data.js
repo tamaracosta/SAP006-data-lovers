@@ -14,7 +14,7 @@ export const computeStats = (data) => {
   }
   const soma = data.reduce((acumulado, atual) => acumulado + atual, 0);
   const divisor = data.length;
-  const media = parseInt(soma) / divisor;
+  const media = soma / divisor;
   return media.toFixed(2);
 }
 
