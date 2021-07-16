@@ -1,110 +1,132 @@
-import { sortData, computeStats } from '../src/data.js';
+import { sortData, computeStats, filterDataNome } from '../src/data.js';
 
-const dataTeste = [{
-  Alistar: {
-    key: "12",
-    name: "Alistar",
-    title: "the Minotaur",
-    difficulty: 7,
-    tags: ["Tank", "Support"],
-  },
+const personagens = [
+  {
+   key: "28",
+   name: "Evelynn",
+   title: "the Widowmaker",
+   difficulty: 10,
+   tags: ["Assassin", "Tank"],
+ },
 
-  Jayce: {
-    key: "126",
-    name: "Jayce",
-    title: "the Defender of Tomorrow",
-    difficulty: 7,
-    tags: ["Fighter", "Marksman"],
-  },
+ {
+   key: "126",
+   name: "Jayce",
+   title: "the Defender of Tomorrow",
+   difficulty: 7,
+   tags: ["Fighter", "Marksman"],
+ },
 
-  Evelynn: {
-    key: "28",
-    name: "Evelynn",
-    title: "the Widowmaker",
-    difficulty: 10,
-    tags: ["Assassin", "Tank"],
-  },
+ {
+   key: "28",
+   name: "Evelynn",
+   title: "the Widowmaker",
+   difficulty: 10,
+   tags: ["Assassin", "Tank"],
+ },
 
-  Eva: {
-    key: "28",
-    name: "Evelynn",
-    title: "the Widowmaker",
-    difficulty: 10,
-    tags: ["Assassin", "Tank"],
-  },
-}]
+ {
+   key: "12",
+   name: "Alistar",
+   title: "the Minotaur",
+   difficulty: 7,
+   tags: ["Tank", "Support"],
+ },
+]
 
-const ordemDeAZ = [{
-  Alistar: {
-    key: "12",
-    name: "Alistar",
-    title: "the Minotaur",
-    difficulty: 7,
-    tags: ["Tank", "Support"],
-  },
+const ordemDeAZ = [
+ {
+   key: "12",
+   name: "Alistar",
+   title: "the Minotaur",
+   difficulty: 7,
+   tags: ["Tank", "Support"],
+ },
 
-  Eva: {
-    key: "28",
-    name: "Evelynn",
-    title: "the Widowmaker",
-    difficulty: 10,
-    tags: ["Assassin", "Tank"],
-  },
+ {
+   key: "28",
+   name: "Evelynn",
+   title: "the Widowmaker",
+   difficulty: 10,
+   tags: ["Assassin", "Tank"],
+ },
 
-  Evelynn: {
-    key: "28",
-    name: "Evelynn",
-    title: "the Widowmaker",
-    difficulty: 10,
-    tags: ["Assassin", "Tank"],
-  },
+ {
+   key: "28",
+   name: "Evelynn",
+   title: "the Widowmaker",
+   difficulty: 10,
+   tags: ["Assassin", "Tank"],
+ },
 
-  Jayce: {
-    key: "126",
-    name: "Jayce",
-    title: "the Defender of Tomorrow",
-    difficulty: 7,
-    tags: ["Fighter", "Marksman"],
-  },
-}]
+ {
+  key: "126",
+  name: "Jayce",
+  title: "the Defender of Tomorrow",
+  difficulty: 7,
+  tags: ["Fighter", "Marksman"],
+},
+]
+  
+const ordemDeZA = [
+{
+  key: "126",
+  name: "Jayce",
+  title: "the Defender of Tomorrow",
+  difficulty: 7,
+  tags: ["Fighter", "Marksman"],
+},
 
-const ordemDeZA = [{
-  Jayce: {
-    key: "126",
-    name: "Jayce",
-    title: "the Defender of Tomorrow",
-    difficulty: 7,
-    tags: ["Fighter", "Marksman"],
-  },
+{
+  key: "28",
+  name: "Evelynn",
+  title: "the Widowmaker",
+  difficulty: 10,
+  tags: ["Assassin", "Tank"],
+},
 
-  Evelynn: {
-    key: "28",
-    name: "Evelynn",
-    title: "the Widowmaker",
-    difficulty: 10,
-    tags: ["Assassin", "Tank"],
-  },
+{
+  key: "28",
+  name: "Evelynn",
+  title: "the Widowmaker",
+  difficulty: 10,
+  tags: ["Assassin", "Tank"],
+},
 
-  Eva: {
-    key: "28",
-    name: "Evelynn",
-    title: "the Widowmaker",
-    difficulty: 10,
-    tags: ["Assassin", "Tank"],
-  },
+{
+  key: "12",
+  name: "Alistar",
+  title: "the Minotaur",
+  difficulty: 7,
+  tags: ["Tank", "Support"],
+},
+]
 
-  Alistar: {
-    key: "12",
-    name: "Alistar",
-    title: "the Minotaur",
-    difficulty: 7,
-    tags: ["Tank", "Support"],
-  },
-}]
+//TESTE FILTER NOME
+describe('filterDataNome', () => {
+  it('deve ser uma função', () => {
+    expect(typeof filterDataNome).toBe("function");
+  });
 
+  it('retornar o nome Jayce', () => {
+    expect(filterDataNome(personagens, "name", "Jayce")).toEqual([personagens[1]]);
+  });
 
+  it('retornar personagem quando digitado tudo em letra maiúscula', () => {
+    expect(filterDataNome(personagens, "name", "JAYCE")).toEqual([personagens[1]]);
+  });
 
-const personagens = Object.values(dataTeste)
+  it('retornar personagem quando digitado tudo em letra minúscula', () => {
+    expect(filterDataNome(personagens, "name", "jayce")).toEqual([personagens[1]]);
+  });
+
+  it('retornar personagem quando digitado parte do nome', () => {
+    expect(filterDataNome(personagens, "name", "jay")).toEqual([personagens[1]]);
+  });
+
+});
+
+//TESTE SORT
 describe('teste com ordem alfabética', () => {
   it('ordena de A-Z', () => {
     expect(sortData(personagens, "name", "crescente")).toStrictEqual(ordemDeAZ);
@@ -116,6 +138,7 @@ describe('teste com ordem alfabética', () => {
 });
 
 
+//TESTE COMPUTESTATS
 describe('computeStats', () => {
   it('deve ser uma função', () => {
     expect(typeof computeStats).toBe("function");
@@ -134,3 +157,5 @@ describe('computeStats', () => {
   })
 })
 
+
+ 
