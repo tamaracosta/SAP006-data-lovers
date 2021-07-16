@@ -1,5 +1,4 @@
-
-import {sortData, filterDataNome, filterData} from './data.js';
+import { filterDataNome, sortData, filterNestedObj, filterNestedArr } from './data.js';
 import data from './data/lol/lol.js';
 
 const champs = Object.values(data.data);
@@ -156,7 +155,7 @@ document.getElementById('campoPesquisar').addEventListener('keyup', pesquisarNom
 
 // VOLTAR A PÁGINA INICIAL
 function voltarCard() {
-  cards();
+  iniciar();
 }
 
 // FILTRAR NÍVEL DE DIFICULDADE
@@ -164,26 +163,24 @@ function filtrarDificuldade(cartoes) {
 
   const nivelDificuldade = document.getElementById('campoFiltrar').value;
 
-  const dadosFiltrados = filterData(cartoes, dificuldade);
-  function dificuldade(cartaoAtual) {
-    const numDificuldade = (cartaoAtual.info.difficulty);
+  let dadosFiltrados;
 
-    if (nivelDificuldade == "difBaixa" && numDificuldade >= 1 && numDificuldade <= 3) {
-      return true;
-    }
-    else if (nivelDificuldade == "difMedia" && numDificuldade >= 4 && numDificuldade <= 7) {
-      return true;
-    }
-    else if (nivelDificuldade == "difAlta" && numDificuldade >= 8 && numDificuldade <= 10) {
-      return true;
-    }
-    else if (nivelDificuldade == "nivel") {
-      return true;
-    }
+  if (nivelDificuldade == "difBaixa") {
+    dadosFiltrados = filterNestedObj(cartoes, [1, 2, 3], (champ) => champ.info.difficulty)
   }
-  return dadosFiltrados;
+  else if (nivelDificuldade == "difMed") {
+    dadosFiltrados = filterNestedObj(cartoes, [4, 5, 6, 7], (champ) => champ.info.difficulty);
+  }
+  else if (nivelDificuldade == "difAlta") {
+    dadosFiltrados = filterNestedObj(cartoes, [8, 9, 10], (champ) => champ.info.difficulty);
+  }
+  else if (nivelDificuldade == "nivel") {
+    dadosFiltrados = cartoes;
+  }
 
+  return dadosFiltrados;
 }
+
 document.getElementById('campoFiltrar').addEventListener('change', todosFiltros)
 
 
@@ -191,54 +188,46 @@ const botoesAbas = [document.querySelectorAll("nav button")];
 
 //FUNÇÕES PARA MOSTRAR CONTÉUDO NAS ABAS
 function abas(funcaoDoCampeao) {
-  function tag(funcao) {
-    return funcaoDoCampeao.includes(funcao);
-  }
 
-  function funcaoPersonagem(champ) {
-    return champ.tags.some(tag);
-  }
-
-  const cartoes = filterData(champs, funcaoPersonagem);
+  const cartoes = filterNestedArr(champs, "tags", funcaoDoCampeao);
   cartoesFiltradosPorFuncao = cartoes;
   todosFiltros();
-
 }
 
 
 function mostrarAbaAtual(value) {
 
-  let funcaoPersonagemAba;
+  let funcaoDoCampeao;
   switch (value) {
     case "btn-todos":
-      funcaoPersonagemAba = ["Marksman", "Assassin", "Fighter", "Mage", "Support", "Tank"];
+      funcaoDoCampeao = ["Marksman", "Assassin", "Fighter", "Mage", "Support", "Tank"];
       break;
 
     case "btn-atiradores":
-      funcaoPersonagemAba = "Marksman";
+      funcaoDoCampeao = "Marksman";
       break;
 
     case "btn-assassinos":
-      funcaoPersonagemAba = "Assassin";
+      funcaoDoCampeao = "Assassin";
       break;
 
     case "btn-lutadores":
-      funcaoPersonagemAba = "Fighter";
+      funcaoDoCampeao = "Fighter";
       break;
 
     case "btn-magos":
-      funcaoPersonagemAba = "Mage";
+      funcaoDoCampeao = "Mage";
       break;
 
     case "btn-suportes":
-      funcaoPersonagemAba = "Support";
+      funcaoDoCampeao = "Support";
       break;
 
     case "btn-tanques":
-      funcaoPersonagemAba = "Tank";
+      funcaoDoCampeao = "Tank";
       break;
   }
-  return abas(funcaoPersonagemAba);
+  return abas(funcaoDoCampeao);
 }
 
 function removerClasseAtiva() {
@@ -279,4 +268,3 @@ function todosFiltros() {
   const cartoesFiltradosPorNivel = filtrarDificuldade(cartoesFiltradosPorFuncao);
   cards(cartoesFiltradosPorNivel);
 }
-
