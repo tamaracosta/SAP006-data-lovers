@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
     margin: 0;
@@ -9,7 +10,11 @@
 
 body {
     /* background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);  */            
-    background-image: linear-gradient(to bottom, #0e0021, #310968);
+    /* background-image: linear-gradient(to bottom, #0e0021, #310968); */
+    background: url(img/BACKGROUNDoriginal.png);
+    background-attachment: fixed;
+    background-size: cover; /*fixa o background no safari*/
+
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
 } 
@@ -25,14 +30,14 @@ body {
     
 }
 
- @keyframes neon {
+ /* @keyframes neon {
     from {
         filter: drop-shadow(0 0 0 var(--cor--neon));
     }
     to {
         filter: drop-shadow(0 0 30px var(--cor--neon));
     }
-}
+} */
 
 
 #div-header {
@@ -90,7 +95,9 @@ button:hover{
     height: 2px;
     width: 0%;
     /* background-color: rgb(238, 224, 32); */
-    background-color: rgb(0, 255, 255);
+    /* background-color: rgb(0, 255, 255); */
+    background-color: #D99E54;
+
     transition: 0.3s;
 }
 
@@ -117,7 +124,7 @@ ul {
     flex-wrap: wrap;
 }
 
-#pesquisar {
+ /* #pesquisar {
     display: flex;
     background-color: rgb(30, 31, 92);
     border-radius: 15px;
@@ -126,12 +133,40 @@ ul {
     width: 250px;
     margin-top: 20px;
     margin-bottom: 20px;
+}  */
+
+  #pesquisar {
+    display: flex;
+    background-color: #372339;
+    border-radius: 15px;
+    border: 3px #D99E54 solid; 
+    height: 40px;
+    width: 250px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    animation: neon2 3s alternate infinite ease-in-out;
+    --cor--neon2: #D99E54;
+
+}  
+
+@keyframes neon2 {
+    from {
+        filter: drop-shadow(0 0 0 var(--cor--neon2));
+    }
+    to {
+        filter: drop-shadow(0 0 30px var(--cor--neon2));
+    }
 }
+
+
+
+
+
 
 #campoPesquisar {
     background-color: transparent;
     border: none;
-    color:beige;
+    color:#D99E54;
     margin-left: 10px;
     font-size: 1.2em;
     width: 100%;
@@ -142,7 +177,7 @@ ul {
 }
 
 span.material-icons {
-    color: white;
+    color: #D99E54;
     margin: auto;
     margin-right: 5px;
 }
@@ -178,13 +213,13 @@ a.btn-curiosidade-container, .filtro-dificuldade {
 }
 
 input::placeholder, #campoFiltrar, #funcao-do-campeao{
-    color: rgb(236, 236, 236);
+    color: #D99E54;
     text-align: center;
     font-size: 20px;
     padding: 0 10px;
 }
-
-#campoFiltrar, 
+ 
+/* #campoFiltrar, 
 #curiosidade, 
 #funcao-do-campeao {
     background-color: rgb(94, 34, 91);
@@ -192,28 +227,46 @@ input::placeholder, #campoFiltrar, #funcao-do-campeao{
     height: 40px;
     width: 100%;
     border: 3px rgb(255, 0, 255) solid;
-}
+} */
+
+ #campoFiltrar, 
+#curiosidade, 
+#funcao-do-campeao {
+    color:#D99E54;
+    background-color: #372339;
+    border-radius: 15px;
+    height: 40px;
+    width: 100%;
+    border: 3px #D99E54 solid;
+    animation: neon2 60s alternate infinite ease-in-out;
+    --cor--neon2: #D99E54;
+} 
 
 #curiosidade  {
-    background-color: #157777;
-    border: 3px #03FDFD solid;
-    color:#03FDFD;
+    background-color: #372339;
+    border: 3px #D99E54 solid;
+    color:#D99E54;
     font-size: 1.5rem;
     text-transform: none;
     padding: 0;
-}
+    animation: neon2 60s alternate infinite ease-in-out;
+    --cor--neon2: #D99E54;
+} 
+
 
 
 #ordenar {
-    background-color: rgb(31, 97, 69);
+    background-color: #372339;
     border-radius: 15px;
     height: 40px;
     width: 5em;
-    border: 3px rgb(0, 255, 149) solid;
-    color:rgb(236, 236, 236);
+    border: 3px #D99E54 solid;
+    color:#D99E54;
     font-size: 1em;
     outline: none;
-}
+    animation: neon2 60s alternate infinite ease-in-out;
+    --cor--neon2: #D99E54;
+} 
 
 #inputs {
     display: flex;
@@ -472,9 +525,9 @@ h3 {
     height: 28em;
     border-radius: 50%;
     border-top: 5px dashed #03FDFD;
-    border-right: 5px dashed #13dfdf;
-    border-left: 5px dashed #2eafaf;
-    border-bottom: 5px dashed #318888;
+    border-right: 5px dashed #03FDFD;
+    border-left: 5px dashed #03FDFD;
+    border-bottom: 5px dashed #03FDFD;
     padding: 10px;
     animation: spin 10s infinite linear;
     position: absolute;        
@@ -488,9 +541,10 @@ h3 {
 
 
 /* ==========================RESPONSIVIDADE==================================== */
-@media screen and (min-width: 481px) and (max-width: 1024px){
+/* @media screen and (min-width: 481px) and (max-width: 1024px){ */
+    @media screen and (min-width: 481px) and (max-width: 768px){
     body {
-         background: rgb(6,6,6);
+        background: rgb(6,6,6);
         background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px); 
         background-image: linear-gradient(to bottom, #0e0021, #310968);
         background-attachment: fixed;
