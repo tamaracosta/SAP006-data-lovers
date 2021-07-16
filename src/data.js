@@ -1,6 +1,14 @@
-export const filterData = (data, condition) => {
-  return data.filter(condition);
+export const filterDataNome = (data, propriedade, nomePersonagem) => {
+    return data.filter(function (cartaoAtual) {
+        if (cartaoAtual[propriedade].toUpperCase().includes(nomePersonagem.toUpperCase())) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
 }
+
 
 export const sortData = (data, sortBy, sortOrder) => {
   return sortOrder === "crescente" ?
@@ -18,12 +26,15 @@ export const computeStats = (data) => {
   return media.toFixed(2);
 }
 
+
 export const filterNestedObj = (data, selected, obj) => {
   if (typeof selected !== "string" && Array.isArray(selected) === false || Array.isArray(data) === false || typeof obj !== "function") {
     throw TypeError();
   }
   return data.filter(item => selected.includes(obj(item)));
 }
+
+
 
 export const filterNestedArr = (data, propriedade, selected) => {
   if (typeof selected !== "string" && Array.isArray(selected) === false || Array.isArray(data) === false) {

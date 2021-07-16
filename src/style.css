@@ -40,14 +40,14 @@ body {
     -webkit-text-stroke-color: rgb(136, 123, 2);
 }
 
- @keyframes neon {
+ /* @keyframes neon {
     from {
         filter: drop-shadow(0 0 0 var(--cor--neon));
     }
     to {
         filter: drop-shadow(0 0 30px var(--cor--neon));
     }
-}
+} */
 
 
 #div-header {
@@ -154,7 +154,7 @@ ul {
     flex-wrap: wrap;
 }
 
-#pesquisar {
+  #pesquisar {
     display: flex;
     background-color: #ffffff;
     border: 3px ;
@@ -163,6 +163,11 @@ ul {
     margin-top: 28vw;
     position: absolute;
 }
+
+
+
+
+
 
 #campoPesquisar {
     background-color: transparent;
@@ -239,7 +244,10 @@ span.material-icons {
 #curiosidade  {
     text-transform: none;
     padding: 0;
-}
+    animation: neon2 60s alternate infinite ease-in-out;
+    --cor--neon2: #D99E54;
+} 
+
 
 /* #ordemAlfabetica {
     font-size: 1.2em;
@@ -530,9 +538,9 @@ h3 {
     height: 28em;
     border-radius: 50%;
     border-top: 5px dashed #03FDFD;
-    border-right: 5px dashed #13dfdf;
-    border-left: 5px dashed #2eafaf;
-    border-bottom: 5px dashed #318888;
+    border-right: 5px dashed #03FDFD;
+    border-left: 5px dashed #03FDFD;
+    border-bottom: 5px dashed #03FDFD;
     padding: 10px;
     animation: spin 10s infinite linear;
     position: absolute;        
@@ -548,7 +556,7 @@ h3 {
 /* ==========================RESPONSIVIDADE==================================== */
 @media screen and (min-width: 481px) and (max-width: 768px){
     body {
-         background: rgb(6,6,6);
+        background: rgb(6,6,6);
         background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px); 
         background-image: linear-gradient(to bottom, #0e0021, #310968);
         background-attachment: fixed;

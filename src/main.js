@@ -1,5 +1,4 @@
-import { filterData, sortData, filterNestedObj, filterNestedArr } from './data.js';
-
+import { filterDataNome, sortData, filterNestedObj, filterNestedArr } from './data.js';
 import data from './data/lol/lol.js';
 
 const champs = Object.values(data.data);
@@ -129,16 +128,17 @@ document.getElementById("ordenar").addEventListener("change", ordenar);
 function pesquisarNome() {
   const textoDigitado = document.getElementById("campoPesquisar").value.toUpperCase();
 
-  const dadosFiltrados = filterData(champs, filtrarNome)
+// const dadosFiltrados = filterDataNome(champs, filtrarNome)
+const dadosFiltrados = filterDataNome(champs, "name", textoDigitado)
 
-  function filtrarNome(cartaoAtual) {
-    if (cartaoAtual.name.toUpperCase().includes(textoDigitado)) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+  // function filtrarNome(cartaoAtual) {
+  //   if (cartaoAtual.name.toUpperCase().includes(textoDigitado)) {
+  //     return true;
+  //   }
+  //   else {
+  //     return false;
+  //   }
+  // }
 
   cards(dadosFiltrados);
 

@@ -1,4 +1,7 @@
-import { sortData, computeStats, filterNestedArr, filterNestedObj } from '../src/data.js';
+import { sortData, computeStats, filterDataNome, filterNestedArr, filterNestedObj } from '../src/data.js';
+
+//TESTE SORT
+
 
 const personagens = [
   {
@@ -233,6 +236,32 @@ const dificuldadeSete = [
 
 
 
+//TESTE FILTER NOME
+describe('filterDataNome', () => {
+  it('deve ser uma função', () => {
+    expect(typeof filterDataNome).toBe("function");
+  });
+
+  it('retornar o nome Jayce', () => {
+    expect(filterDataNome(personagens, "name", "Jayce")).toEqual([personagens[1]]);
+  });
+
+  it('retornar personagem quando digitado tudo em letra maiúscula', () => {
+    expect(filterDataNome(personagens, "name", "JAYCE")).toEqual([personagens[1]]);
+  });
+
+  it('retornar personagem quando digitado tudo em letra minúscula', () => {
+    expect(filterDataNome(personagens, "name", "jayce")).toEqual([personagens[1]]);
+  });
+
+  it('retornar personagem quando digitado parte do nome', () => {
+    expect(filterDataNome(personagens, "name", "jay")).toEqual([personagens[1]]);
+  });
+
+});
+
+
+//TEST SORT
 describe('teste com ordem alfabética', () => {
   it('ordena de A-Z', () => {
     expect(sortData(personagens, "name", "crescente")).toStrictEqual(ordemDeAZ);
@@ -244,6 +273,7 @@ describe('teste com ordem alfabética', () => {
 });
 
 
+//TESTE COMPUTESTATS
 describe('computeStats', () => {
   it('deve ser uma função', () => {
     expect(typeof computeStats).toBe('function');
@@ -261,6 +291,8 @@ describe('computeStats', () => {
   })
 })
 
+
+// TESTE FILTER OBJETO (FUNÇÃO DO PERSONAGEM)
 describe('filterNestedArr', () => {
   it('deve ser uma função', () => {
     expect(typeof filterNestedArr).toBe('function');
