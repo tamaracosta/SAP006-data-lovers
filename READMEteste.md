@@ -1,7 +1,5 @@
 ![Capa do Projeto](src/img/banner.png?raw=true)
 
-<!-- ![foto](https://raw.githubusercontent.com/tamaracosta/SAP006-data-lovers/main/src/img/BACKGROUNDSATURADO.png) -->
-
 # LEAGUE OF LEGEND´S CARDS
 
 ## 🎯Objetivo
