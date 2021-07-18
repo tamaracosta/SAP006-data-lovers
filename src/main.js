@@ -168,7 +168,7 @@ function filtrarDificuldade(cartoes) {
   if (nivelDificuldade == "difBaixa") {
     dadosFiltrados = filterNestedObj(cartoes, [1, 2, 3], (champ) => champ.info.difficulty)
   }
-  else if (nivelDificuldade == "difMed") {
+  else if (nivelDificuldade == "difMedia") {
     dadosFiltrados = filterNestedObj(cartoes, [4, 5, 6, 7], (champ) => champ.info.difficulty);
   }
   else if (nivelDificuldade == "difAlta") {
