@@ -374,7 +374,6 @@ span.material-icons {
     width: 25em;
     height: 25em;
     border-radius: 50%;
-    /* background-color: #13dfdf; */
     background: linear-gradient(180deg, #721262 100px, #290329 400px);
     text-align: center;
     position: absolute;
@@ -576,8 +575,7 @@ h3 {
     }
 
     .filtro-dificuldade,
-    #ordemAlfabetica
-     {
+    #ordemAlfabetica {
         width: 45vw;
         margin: 10px 0px 10px 3vw;
     }
