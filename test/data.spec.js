@@ -1,7 +1,5 @@
 import { sortData, computeStats, filterDataNome, filterNestedArr, filterNestedObj } from '../src/data.js';
 
-//TESTE SORT
-
 
 const personagens = [
   {
@@ -235,7 +233,6 @@ const dificuldadeSete = [
 ]
 
 
-
 //TESTE FILTER NOME
 describe('filterDataNome', () => {
   it('deve ser uma função', () => {
@@ -292,7 +289,7 @@ describe('computeStats', () => {
 })
 
 
-// TESTE FILTER OBJETO (FUNÇÃO DO PERSONAGEM)
+// TESTE FILTER FUNÇÃO DO PERSONAGEM
 describe('filterNestedArr', () => {
   it('deve ser uma função', () => {
     expect(typeof filterNestedArr).toBe('function');
@@ -309,7 +306,7 @@ describe('filterNestedArr', () => {
   });
 })
 
-
+// TESTE FILTER DIFICULDADE DO PERSONAGEM
 describe('filterNestedObj', () => {
   it('deve ser uma função', () => {
     expect(typeof filterNestedObj).toBe('function');
