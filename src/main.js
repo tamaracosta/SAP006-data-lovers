@@ -16,25 +16,18 @@ function cards(cartoesFiltrados) {
     cartoes = champs;
   }
 
-  let i;
-  let champName;
-  let champImg;
-  let champImgBack;
-  let champFunction;
-  let champTitle;
-
   document.getElementById("cardContainer").innerHTML = "";
 
-  for (i = 0; i < cartoes.length; i++) {
-    champImg = cartoes[i].splash;
-    champName = cartoes[i].name;
-    champImgBack = cartoes[i].img;
-    champFunction = cartoes[i].tags;
-    champTitle = cartoes[i].title;
+  for (let champ of cartoes) {
+    const champImg = champ.splash;
+    const champName = champ.name;
+    const champImgBack = champ.img;
+    const champFunction = champ.tags;
+    const champTitle = champ.title;
 
     let champInfo = "";
-    Object.keys(cartoes[i].info).forEach(e => {
-      champInfo += (e + ": " + cartoes[i].info[e] + "<br>")
+    Object.keys(champ.info).forEach(key => {
+      champInfo += (key + ": " + champ.info[key] + "<br>")
     });
 
     //CRIANDO OS CARDS
@@ -128,17 +121,10 @@ document.getElementById("ordenar").addEventListener("change", ordenar);
 function pesquisarNome() {
   const textoDigitado = document.getElementById("campoPesquisar").value.toUpperCase();
 
-// const dadosFiltrados = filterDataNome(champs, filtrarNome)
-const dadosFiltrados = filterDataNome(champs, "name", textoDigitado)
+  const dadosFiltrados = filterDataNome(champs, "name", textoDigitado)
 
-  // function filtrarNome(cartaoAtual) {
-  //   if (cartaoAtual.name.toUpperCase().includes(textoDigitado)) {
-  //     return true;
-  //   }
-  //   else {
-  //     return false;
-  //   }
-  // }
+  const caixaPesquisa = document.getElementById("campoPesquisar");
+  caixaPesquisa.scrollIntoView();
 
   cards(dadosFiltrados);
 
@@ -183,8 +169,6 @@ function filtrarDificuldade(cartoes) {
 
 document.getElementById('campoFiltrar').addEventListener('change', todosFiltros)
 
-
-const botoesAbas = [document.querySelectorAll("nav button")];
 
 //FUNÇÕES PARA MOSTRAR CONTÉUDO NAS ABAS
 function abas(funcaoDoCampeao) {
@@ -231,8 +215,7 @@ function mostrarAbaAtual(value) {
 }
 
 function removerClasseAtiva() {
-  const abaAtiva = document.querySelectorAll("nav button");
-  abaAtiva.forEach(aba => {
+  botoesAbas.forEach(aba => {
     aba.className = aba.className.replace(" ativo", "");
   })
 }
@@ -246,12 +229,13 @@ function selecionarAba(event) {
   abaValue.classList.add("ativo");
 }
 
+const botoesAbas = document.querySelectorAll(".btn");
+
 //ADICIONA EVENTO "CLICK" A CADA BOTÃO DA NAV
-botoesAbas.forEach(botao => {
-  for (let i = 0; i < botao.length; i++) {
-    botao[i].addEventListener("click", selecionarAba);
-  }
-});
+for (let botao of botoesAbas) {
+  botao.addEventListener("click", selecionarAba);
+}
+
 
 //ADICIONA EVENTO "CHANGE" AO SELECT de FUNCAO DO CAMPEAO @MEDIA
 document.getElementById("funcao-do-campeao").addEventListener("change", selecionarAba);
