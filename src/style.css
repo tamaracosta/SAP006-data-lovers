@@ -14,9 +14,6 @@
 }
 
 body {
-    /* background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px);  */            
-    /* background-image: linear-gradient(to bottom, #0e0021, #310968); */
-
     background-color: #1e011f;
     background-image: url("img/BACKGROUNDSATURADO.png");
     font-size: 16px;
@@ -40,14 +37,14 @@ body {
     -webkit-text-stroke-color: rgb(136, 123, 2);
 }
 
- /* @keyframes neon {
+ @keyframes neon {
     from {
         filter: drop-shadow(0 0 0 var(--cor--neon));
     }
     to {
         filter: drop-shadow(0 0 30px var(--cor--neon));
     }
-} */
+}
 
 
 #div-header {
@@ -126,7 +123,6 @@ button:hover{
     content: "";
     height: 2px;
     width: 0%;
-    /* background-color: rgb(238, 224, 32); */
     background-color: #d99E54;
     transition: 0.3s;
 }
@@ -154,7 +150,7 @@ ul {
     flex-wrap: wrap;
 }
 
-  #pesquisar {
+#pesquisar {
     display: flex;
     background-color: #ffffff;
     border: 3px ;
@@ -163,11 +159,6 @@ ul {
     margin-top: 28vw;
     position: absolute;
 }
-
-
-
-
-
 
 #campoPesquisar {
     background-color: transparent;
@@ -194,15 +185,15 @@ span.material-icons {
 }
 
 .btnVoltar {
-    color: rgb(25, 0, 255);
+    color: rgb(236, 236, 236);
     font-weight: bold;
     padding: 10px;
-    background-color: white;
-    border-radius: 15px;
+    background-color: #110d24;
     margin: 50px 0;
     height: 40px;
     width: 50px;
-    border: 3px rgb(25, 0, 255) solid;
+    border: 2px solid #d99E54;
+    box-shadow: 3px 3px 3px black;
     cursor: pointer;
     opacity: 1;
 }
@@ -218,17 +209,10 @@ span.material-icons {
     margin-bottom: 1vw;
 }
 
-/* #campoFiltrar, #funcao-do-campeao{
-    text-align: center;
-    text-align-last: center; centraliza para chrome no celular
-  
-  
-} */
-
 #campoFiltrar, 
 #curiosidade, 
 #funcao-do-campeao,
-#ordenar /*tirar se usar label*/{
+#ordenar {
     color: rgb(236, 236, 236);
     font-size: 1.2em;
     background-color: #110d24;
@@ -236,7 +220,6 @@ span.material-icons {
     width: 100%;
     border: 2px solid #d99E54;
     box-shadow: 3px 3px 3px black;
-
     text-align: center;
     text-align-last: center; /*centraliza para chrome no celular*/
 }
@@ -246,34 +229,7 @@ span.material-icons {
     padding: 0;
     animation: neon2 60s alternate infinite ease-in-out;
     --cor--neon2: #D99E54;
-} 
-
-
-/* #ordemAlfabetica {
-    font-size: 1.2em;
-    background-color: #110d24;
-    height: 40px;
-    border: 2px solid #d99E54;
-    box-shadow: 3px 3px 3px black;
-    display: flex;
-    align-items: center;
-} */
-
-/* #ordenar {
-    width: 100%;
-    background-color: transparent;
-    height: 36px;
-    border: none;
-    color: #ffffff;
-    text-align: end; centraliza para firefox anterior
-    text-align-last: right; alinha para chrome, no celular
-    direction: rtl; alinhar o seletor a esquerda e o texto a direita - para bug do safari
-  
-    font-size: 1em;
-    outline: none;
-    overflow: hidden;
-    z-index: 2;
-} */
+}
 
 #inputs {
     display: flex;
@@ -289,14 +245,6 @@ span.material-icons {
     margin: 2rem auto auto auto;
 } 
     
-/* #ordemAlfabetica label {
-    color:rgb(255, 255, 255);
-    font-size: 20px;
-    margin-left: 2vw;
-    position: absolute;
-    z-index: 1;
-} */
-
 .card {
     display: flex;
     flex-direction: column;
@@ -315,7 +263,6 @@ span.material-icons {
     display: block;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    /* background-color: #101f22; */
     background-color: rgb(26, 2, 31);
 }
 
@@ -338,7 +285,6 @@ span.material-icons {
     transform: rotateX(0deg);
     -webkit-transform: rotateX(0deg);
     border-image: linear-gradient(135deg, #F79D20, #dac071, #4d194d, #dac071,#F79D20)1; 
-    /* border-image: linear-gradient(135deg, rgba(5,255,246,1), rgba(33,47,69,1), rgba(77,25,77,1), rgba(33,47,69,1), rgba(5,255,246,1))1; */
 }
 
 .card-back {
@@ -372,7 +318,6 @@ span.material-icons {
 
 .card-back .champTitle-container {
     height: 3.1rem;
-    /* background:linear-gradient(65deg, rgb(96 10 104), #065353); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -407,7 +352,6 @@ span.material-icons {
     transform: scale(1.1);
     cursor: pointer;
     animation: neonCard 1s alternate infinite ease-in-out;
-    /* --cor--neonCard: rgb(0, 238, 255); */
     --cor--neonCard: #dac071;
 }   
     @keyframes neonCard {
@@ -451,7 +395,6 @@ span.material-icons {
     color:#13dfdf;
     text-align: center;
     border-radius: 10px;
-            
 }
 
 h3 {
@@ -475,7 +418,6 @@ h3 {
 #cardCuriosidadeFrente {
     transform: rotateY(180deg);
     z-index: 2;
-
 }
 
 #cardCuriosidadeFrente h2 {
@@ -518,8 +460,7 @@ h3 {
 
 #github a {
     text-decoration: none;
-    color:rgb(255, 255, 255)
-    
+    color:rgb(255, 255, 255) 
 }
 
 #github i {
@@ -665,18 +606,14 @@ h3 {
 }
         
 
-/* =============== TAIENE ============= */
+/* =============== CELULAR ============= */
 @media screen and (min-width: 320px) and (max-width: 480px){
 
     body {
-        /* background: rgb(6,6,6); */
-        /* background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px); */
         min-height: 100vh;
-        /* background-attachment: fixed;  */
     }
 
     .tituloLOL {
-        /* font-size: 7vw; */
         display: none;
     }
 
@@ -704,6 +641,7 @@ h3 {
 
     .card-front img {
         object-fit: cover;
+        object-position: 85% 50%;
         height: 152px;
     }
 
