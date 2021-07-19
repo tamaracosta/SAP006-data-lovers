@@ -1,6 +1,5 @@
 import { sortData, computeStats, filterDataNome, filterNestedArr, filterNestedObj } from '../src/data.js';
 
-
 const personagens = [
   {
     key: "28",
@@ -107,6 +106,63 @@ const ordemDeAZ = [
     },
     tags: ["Fighter", "Marksman"],
   },
+]
+
+const ordemTitle = [
+
+  {
+    key: "126",
+    name: "Jayce",
+    title: "the Defender of Tomorrow",
+    info: {
+      attack: 8,
+      defense: 4,
+      magic: 3,
+      difficulty: 7
+    },
+    tags: ["Fighter", "Marksman"],
+  },
+
+  {
+    key: "12",
+    name: "Alistar",
+    title: "the Minotaur",
+    info: {
+      attack: 6,
+      defense: 9,
+      magic: 5,
+      difficulty: 7
+    },
+    tags: ["Tank", "Support"],
+  },
+
+  {
+    key: "28",
+    name: "Evelynn",
+    title: "the Widowmaker",
+    info: {
+      attack: 4,
+      defense: 2,
+      magic: 7,
+      difficulty: 10
+    },
+    tags: ["Assassin", "Tank"],
+  },
+
+  {
+    key: "28",
+    name: "Evelynn",
+    title: "the Widowmaker",
+    info: {
+      attack: 4,
+      defense: 2,
+      magic: 7,
+      difficulty: 10
+    },
+    tags: ["Assassin", "Tank"],
+  },
+
+ 
 ]
 
 const ordemDeZA = [
@@ -262,6 +318,10 @@ describe('filterDataNome', () => {
 describe('teste com ordem alfabética', () => {
   it('ordena de A-Z', () => {
     expect(sortData(personagens, "name", "crescente")).toStrictEqual(ordemDeAZ);
+  });
+
+  it('ordena de A-Z', () => {
+    expect(sortData(personagens, "title", "crescente")).toStrictEqual(ordemTitle);
   });
 
   it('ordena de Z-A', () => {

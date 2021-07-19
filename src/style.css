@@ -285,7 +285,7 @@ span.material-icons {
     transform: rotateX(0deg);
     -webkit-transform: rotateX(0deg);
     border-image: linear-gradient(135deg, #F79D20, #dac071, #4d194d, #dac071,#F79D20)1; 
-}
+ }
 
 .card-back {
     transform: rotateY(180deg);
@@ -368,14 +368,14 @@ span.material-icons {
 }
 
 
-
-/* ==========================PAGINA CURIOSIDADE==================================== */
+/* ==========================PÁGINA CURIOSIDADE==================================== */
 
 .face {
     width: 25em;
     height: 25em;
     border-radius: 50%;
-    background-color: #13dfdf;
+    /* background-color: #13dfdf; */
+    background: linear-gradient(180deg, #721262 100px, #290329 400px);
     text-align: center;
     position: absolute;
     backface-visibility: hidden;
@@ -391,10 +391,10 @@ span.material-icons {
 #descubra, #voltarPrincipal {
     width: 150px;
     height: 30px;
-    background-color: #000000;
-    color:#13dfdf;
-    text-align: center;
-    border-radius: 10px;
+    background-color:#D99E54;
+    color:#290329;
+    font-weight: bold;
+    text-align: center;             
 }
 
 h3 {
@@ -412,17 +412,18 @@ h3 {
     display: flex;
     justify-content: center;
     transition: all 1s;
-    margin-top: 1.5em;
+    margin-top: 1.5em;    
 }
 
 #cardCuriosidadeFrente {
     transform: rotateY(180deg);
     z-index: 2;
+    color: rgb(218, 206, 206);
 }
 
 #cardCuriosidadeFrente h2 {
     padding-top: 18%;
-    font-size: 25px;
+    font-size: 23px;
     width: 80%;
     margin: auto;
 }
@@ -432,6 +433,7 @@ h3 {
     flex-direction: column;
     justify-content: space-around;
     z-index: 1;
+    color: rgb(218, 206, 206);
 }
 
 #resultadoMedia {
@@ -473,15 +475,14 @@ h3 {
     justify-content: center;
 }
 
-
 #borda-circle {
     width: 28em;
     height: 28em;
     border-radius: 50%;
-    border-top: 5px dashed #03FDFD;
-    border-right: 5px dashed #03FDFD;
-    border-left: 5px dashed #03FDFD;
-    border-bottom: 5px dashed #03FDFD;
+    border-top: 5px dashed #D99E54;
+    border-right: 5px dashed #D99E54;
+    border-left: 5px dashed #D99E54;
+    border-bottom: 5px dashed #D99E54;
     padding: 10px;
     animation: spin 10s infinite linear;
     position: absolute;        
@@ -497,10 +498,6 @@ h3 {
 /* ==========================RESPONSIVIDADE==================================== */
 @media screen and (min-width: 481px) and (max-width: 768px){
     body {
-        background: rgb(6,6,6);
-        background: linear-gradient(180deg, rgba(6,6,6,1) 0px, rgba(33,47,69,1) 400px, rgb(60, 87, 109) 500px); 
-        background-image: linear-gradient(to bottom, #0e0021, #310968);
-        background-attachment: fixed;
         min-height: 100vh;
      }
     
@@ -526,6 +523,11 @@ h3 {
     #funcao-do-campeao {
         display: block;
     }
+
+     #pesquisar {
+        width: 60vw;
+        
+    } 
     
     .card-front,
     .card-back {
@@ -603,10 +605,8 @@ h3 {
     .containerCirculo {
         margin-top: 10vh;
     }
-}
-        
+}    
 
-/* =============== CELULAR ============= */
 @media screen and (min-width: 320px) and (max-width: 480px){
 
     body {
@@ -628,7 +628,6 @@ h3 {
         display: none;
     }
 
-    
     #funcao-do-campeao {
         display: block;
     }
@@ -685,7 +684,6 @@ h3 {
     .btn-curiosidade-container, .filtro-dificuldade, #ordemAlfabetica, #funcao-do-campeao{
         width: 45vw;
     }
-
     
     #pesquisar {
         width: 80vw;
