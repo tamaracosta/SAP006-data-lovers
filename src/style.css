@@ -231,33 +231,6 @@ span.material-icons {
     --cor--neon2: #D99E54;
 } 
 
-
-/* #ordemAlfabetica {
-    font-size: 1.2em;
-    background-color: #110d24;
-    height: 40px;
-    border: 2px solid #d99E54;
-    box-shadow: 3px 3px 3px black;
-    display: flex;
-    align-items: center;
-} */
-
-/* #ordenar {
-    width: 100%;
-    background-color: transparent;
-    height: 36px;
-    border: none;
-    color: #ffffff;
-    text-align: end; centraliza para firefox anterior
-    text-align-last: right; alinha para chrome, no celular
-    direction: rtl; alinhar o seletor a esquerda e o texto a direita - para bug do safari
-  
-    font-size: 1em;
-    outline: none;
-    overflow: hidden;
-    z-index: 2;
-} */
-
 #inputs {
     display: flex;
     justify-content: space-between;
@@ -272,14 +245,6 @@ span.material-icons {
     margin: 2rem auto auto auto;
 } 
     
-/* #ordemAlfabetica label {
-    color:rgb(255, 255, 255);
-    font-size: 20px;
-    margin-left: 2vw;
-    position: absolute;
-    z-index: 1;
-} */
-
 .card {
     display: flex;
     flex-direction: column;
@@ -321,8 +286,7 @@ span.material-icons {
     transform: rotateX(0deg);
     -webkit-transform: rotateX(0deg);
     border-image: linear-gradient(135deg, #F79D20, #dac071, #4d194d, #dac071,#F79D20)1; 
-    /* border-image: linear-gradient(135deg, rgba(5,255,246,1), rgba(33,47,69,1), rgba(77,25,77,1), rgba(33,47,69,1), rgba(5,255,246,1))1; */
-}
+  }
 
 .card-back {
     transform: rotateY(180deg);
@@ -355,7 +319,6 @@ span.material-icons {
 
 .card-back .champTitle-container {
     height: 3.1rem;
-    /* background:linear-gradient(65deg, rgb(96 10 104), #065353); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -390,7 +353,6 @@ span.material-icons {
     transform: scale(1.1);
     cursor: pointer;
     animation: neonCard 1s alternate infinite ease-in-out;
-    /* --cor--neonCard: rgb(0, 238, 255); */
     --cor--neonCard: #dac071;
 }   
     @keyframes neonCard {
@@ -405,7 +367,6 @@ span.material-icons {
 #funcao-do-campeao {
     display: none;
 }
-
 
 
 /* ==========================PAGINA CURIOSIDADE==================================== */
@@ -434,8 +395,7 @@ span.material-icons {
     background-color:#D99E54;
     color:#290329;
     font-weight: bold;
-    text-align: center;
-               
+    text-align: center;             
 }
 
 h3 {
@@ -453,15 +413,13 @@ h3 {
     display: flex;
     justify-content: center;
     transition: all 1s;
-    margin-top: 1.5em;
-    
+    margin-top: 1.5em;    
 }
 
 #cardCuriosidadeFrente {
     transform: rotateY(180deg);
     z-index: 2;
     color: rgb(218, 206, 206);
-
 }
 
 #cardCuriosidadeFrente h2 {
@@ -518,7 +476,6 @@ h3 {
     display: flex;
     justify-content: center;
 }
-
 
 #borda-circle {
     width: 28em;
@@ -650,10 +607,8 @@ h3 {
     .containerCirculo {
         margin-top: 10vh;
     }
-}
-        
+}    
 
-/* =============== TAIENE ============= */
 @media screen and (min-width: 320px) and (max-width: 480px){
 
     body {
@@ -661,7 +616,6 @@ h3 {
      }
 
     .tituloLOL {
-        /* font-size: 7vw; */
         display: none;
     }
 
@@ -676,7 +630,6 @@ h3 {
         display: none;
     }
 
-    
     #funcao-do-campeao {
         display: block;
     }
@@ -732,7 +685,6 @@ h3 {
     .btn-curiosidade-container, .filtro-dificuldade, #ordemAlfabetica, #funcao-do-campeao{
         width: 45vw;
     }
-
     
     #pesquisar {
         width: 80vw;
