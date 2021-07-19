@@ -32,6 +32,10 @@ Realizamos um rabiscoframe para entender nossas ideias e objetivos. O rabiscofra
 
 
 
+https://user-images.githubusercontent.com/75817559/126084627-c2ed9aa3-b192-4984-a28e-d3038fb2d174.mp4
+
+
+
 ## 👩‍💻UX Design - Teste de Usabilidade
 Com o link gerado da aplicação pela plataforma Netlify enviamos aos usuários um formulário para responder suas experiências ao navegar em nosso site. Foi constatado três sugestões de mudanças:
 1) Padronizar cores dos principais botões do menu;
@@ -40,6 +44,10 @@ Com o link gerado da aplicação pela plataforma Netlify enviamos aos usuários 
 
 
 ## 📱Responsividade
+
+
+https://user-images.githubusercontent.com/75817559/126084633-6d51f84b-c002-4152-8f31-6d60e9cdbc2b.mp4
+
 
 
 ## Testes Unitários
