@@ -30,15 +30,7 @@ Realizamos um rabiscoframe para entender nossas ideias e objetivos. O rabiscofra
 
 ## 🧐Como funciona?
 
-
-
-## Como funciona?
-
 https://user-images.githubusercontent.com/75817559/126083694-045d079e-37d2-4471-b416-09d80241387e.mp4
-
-
-
-
 
 
 ## 👩‍💻UX Design - Teste de Usabilidade
@@ -82,11 +74,5 @@ Métodos usados:
 ### 👩‍🔧Autoras
 - [@tamaracosta](https://www.github.com/tamaracosta) 
 
-- [@yukaum](https://github.com/yukaum) 
-
-
-
-### Autoras
-- [@tamaracosta](https://www.github.com/tamaracosta)
 - [@yukaum](https://github.com/yukaum) 
 
